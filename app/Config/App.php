@@ -434,3 +434,4 @@ define('BUSINESS_IMG', BEGIN_PATH . 'images/business/');
 define('INDUSTRY_IMG', BEGIN_PATH . 'images/industry/');
 define('PORTFOLIO_IMG', BEGIN_PATH . 'images/portfolio/');
 
+yazhini
