@@ -1,0 +1,422 @@
+<?php
+
+namespace App\Controllers;
+
+class Home extends BaseController
+{
+    protected $db;
+    public $data = [];
+
+    public function __construct()
+    {
+        $this->db = \Config\Database::connect();
+        $this->data['setting'] = $this->db->table('web_setting')
+            ->select('*')
+            ->where('web_setting_id', 1)
+            ->get()
+            ->getRowArray();
+
+        $this->data['menus'] = $this->db->table('web_menu')
+            ->select('*,web_menu_id, web_title, web_url')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('web_menu_id', 'ASC')
+            ->get()
+            ->getResultArray();
+
+        $this->data['service_nav'] = $this->db->table('web_approach')
+            ->select('web_approach_id, web_title, web_url')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order', 'ASC')
+            ->get()
+            ->getResultArray();
+    }
+
+    public function getCommonData()
+    {
+        return $this->response->setJSON([
+            'setting' => $this->data['setting'],
+            'menus' => $this->data['menus'],
+            'services' => $this->data['service_nav']
+        ]);
+    }
+    public function splash()
+    {
+        return view('frontent/indexfetech');
+    }
+    public function index()
+    {
+        $this->data['meta'] = $this->db->table('web_menu')
+            ->select('*,meta_title,meta_desc,meta_key')
+            ->where('web_menu_id', 1)
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->get()->getRowArray();
+
+        if (!$this->data['meta']) {
+            $this->data['meta'] = [
+                'meta_title' => 'Circuit Brilliance | Power Electronics PCB Design',
+                'meta_desc' => '',
+                'meta_key' => ''
+            ];
+        }
+
+
+        $banners = $this->db->table('web_banner')
+            ->select('*, CONCAT("' . BANNER_IMG . '", web_image) AS web_image')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order', 'ASC')
+            ->get()->getResultArray();
+
+        foreach ($banners as &$banner) {
+            if (empty($banner['button_url']) || $banner['button_url'] === '0') {
+                $banner['button_url'] = 'contact';
+            }
+        }
+        $this->data['banner_data'] = $banners;
+
+        $this->data['home_about_data'] = $this->db->table('web_content')
+            ->select('*, concat("' . CONTENT_IMG . '", web_image_1) as image, concat("' . CONTENT_IMG . '", web_image_2) as image2,status')
+            ->where('web_content_id', 1)
+            ->get()->getRowArray();
+
+        $this->data['people_trust_card_data'] = $this->db->table('web_business')
+            ->select('web_business_id, web_title, web_content, CONCAT("' . BUSINESS_IMG . '", web_image) as web_image, display_order, created_on, is_active')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order')
+            ->get()->getResultArray();
+
+        $this->data['people_trust_data'] = $this->db->table('web_content')
+            ->select('*,status')
+            ->where('web_content_id', 2)
+            ->get()->getRowArray();
+
+        $this->data['home_gallery_data'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 3)
+            ->get()->getRowArray();
+        $this->data['gallery_data'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 11)
+            ->get()->getRowArray();
+        $this->data['home_gallerycard_data'] = $this->db->table('web_brand')
+            ->select('web_brand_id,web_title,
+            concat("' . BRAND_IMG . '",web_image) as web_image,display_order,created_on,display_order,is_active')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order', 'ASC')
+            ->get()
+            ->getResultArray();
+
+        $this->data['home_contact_data'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 4)
+            ->get()->getRowArray();
+
+        $this->data['service_cate_card_data'] = $this->db->table('web_service_cate')
+            ->select('*')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order', 'ASC')
+            ->get()->getResultArray();
+
+        $this->data['achievement_data'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 10)
+            ->get()->getRowArray();
+
+        $this->data['framework_data'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 13)
+            ->get()->getRowArray();
+
+        $this->data['whychoose_data'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 12)
+            ->get()->getRowArray();
+
+        $this->data['whychoose_card_data'] = $this->db->table('web_why_choose')
+            ->select('*')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order', 'ASC')
+            ->get()->getResultArray();
+
+        // Your file is in frontend subfolder, so use:
+        return view('frontent/index', $this->data);
+    }
+    // 1 - completed
+    /**
+     * Fetch and display frontend services page.
+     * This method fetches service data and all related rows for the frontend.
+     */
+    public function pageabout()
+    {
+        // META DATA
+        $this->data['meta'] = $this->db->table('web_menu')
+            ->select('*,
+            CONCAT("' . MENU_IMG . '", web_image) AS menu_image,
+            meta_title,
+            meta_desc,
+            meta_key
+        ')
+            ->where('web_menu_id', 2)
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->get()
+            ->getRowArray();
+        
+        if (!$this->data['meta']) {
+            $this->data['meta'] = [
+                'menu_image' => '',
+                'meta_title' => 'About Us | Circuit Brilliance',
+                'meta_desc' => '',
+                'meta_key' => ''
+            ];
+        }
+
+        $this->data['about_content_data'] = $this->db->table('web_content')
+            ->select('*,concat("' . CONTENT_IMG . '",web_image_1) as image')
+            ->where('web_content_id', 7)
+            ->get()->getRowArray();
+
+        $this->data['about_vision_data'] = $this->db->table('web_content')
+            ->select('*,concat("' . CONTENT_IMG . '",web_image_1) as image')
+            ->where('web_content_id', 5)
+            ->get()->getRowArray();
+
+        $this->data['about_mission_data'] = $this->db->table('web_content')
+            ->select('*,concat("' . CONTENT_IMG . '",web_image_1) as image')
+            ->where('web_content_id', 6)
+            ->get()->getRowArray();
+
+        $this->data['about_beliefs_data'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 14)
+            ->get()->getRowArray();
+
+        $this->data['about_quote_data'] = $this->db->table('web_content')
+            ->select('*,concat("' . CONTENT_IMG . '",web_image_1) as image')
+            ->where('web_content_id', 15)
+            ->get()->getRowArray();
+
+        $this->data['corevaluecard_data'] = $this->db->table('web_industry')
+            ->select('web_industry_id, web_title,web_content,CONCAT("' . INDUSTRY_IMG . '", web_image) as web_image, display_order, created_on, is_active')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order')
+            ->get()->getResultArray();
+
+        $this->data['corevalue_data'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 8)
+            ->get()->getRowArray();
+
+        $this->data['how_we_work_data'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 9)
+            ->get()->getRowArray();
+
+        $this->data['cred_badges'] = $this->db->table('web_cred_badge')
+            ->select('*')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order', 'ASC')
+            ->get()->getResultArray();
+
+        return view('frontent/about', $this->data);
+    }
+    public function pageservices($slug = null)
+    {
+        // META DATA
+        $this->data['meta'] = $this->db->table('web_menu')
+            ->select('*,
+            CONCAT("' . MENU_IMG . '", web_image) AS menu_image,
+            meta_title,
+            meta_desc,
+            meta_key
+        ')
+            ->where('web_menu_id', 3)
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->get()
+            ->getRowArray();
+        if (!$this->data['meta']) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
+        // FETCH ALL SERVICES (APPROACH) - for sidebar list
+        $this->data['services_data'] = $this->db->table('web_approach')
+            ->select('web_approach_id, web_title, web_url, display_order')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order', 'ASC')
+            ->get()
+            ->getResultArray();
+
+        // FETCH SPECIFIC SERVICE WITH ALL FIELDS + IMAGES
+        $approachBase = base_url('images/approach/');
+        $serviceQuery = $this->db->table('web_approach')
+            ->select('*,
+                CONCAT("' . $approachBase . '", web_image)   AS svc_image,
+                CONCAT("' . $approachBase . '", web_image_1) AS svc_image_1,
+                CONCAT("' . $approachBase . '", web_image_2) AS svc_image_2
+            ')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1);
+
+        if ($slug) {
+            $serviceQuery->where('web_url', $slug);
+        } else {
+            // Default to first service by display_order
+            $serviceQuery->orderBy('display_order', 'ASC')->limit(1);
+        }
+
+        $this->data['service'] = $serviceQuery->get()->getRowArray();
+
+        if (!$this->data['service']) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
+        return view('frontent/services', $this->data);
+    }
+
+
+    public function pagegallery()
+    {
+        $this->data['meta'] = $this->db->table('web_menu')
+            ->select('*,concat("' . MENU_IMG . '",web_image) as menu_image,meta_title,meta_desc,meta_key')
+            ->where('web_menu_id', 4)
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->get()->getRowArray();
+
+        if (!$this->data['meta']) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+        $this->data['gallery_data'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 11)
+            ->get()->getRowArray();
+
+        $this->data['gallerycard_data'] = $this->db->table('web_gallery')
+            ->select('*,concat("' . GALLERY_IMG . '",web_image) as web_image')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->get()->getResultArray();
+
+        return view('frontent/gallery', $this->data);
+    }
+
+    public function pageContact()
+    {
+        $this->data['meta'] = $this->db->table('web_menu')
+            ->select('*,concat("' . MENU_IMG . '",web_image) as menu_image,meta_title,meta_desc,meta_key')
+            ->where('web_menu_id', 5)
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->get()->getRowArray();
+
+        if (!$this->data['meta']) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
+        $this->data['setting'] = $this->db->table('web_setting')
+            ->select('*')
+            ->where('web_setting_id', 1)
+            ->get()->getRowArray();
+
+
+        return view('frontent/contact', $this->data);
+    }
+
+    public function pageportfolio()
+    {
+        // META DATA
+        $this->data['meta'] = $this->db->table('web_menu')
+            ->select('*,
+            CONCAT("' . MENU_IMG . '", web_image) AS menu_image,
+            meta_title,
+            meta_desc,
+            meta_key
+        ')
+            ->where('web_menu_id', 6)
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->get()
+            ->getRowArray();
+
+        if (!$this->data['meta']) {
+            $this->data['meta'] = [
+                'menu_image' => '',
+                'meta_title' => 'Our Portfolio | Circuit Brilliance',
+                'meta_desc' => 'Power Electronics Design — Done Right, Every Time',
+                'meta_key' => ''
+            ];
+        }
+
+        // Portfolio Intro
+        $this->data['portfolio_intro'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 16)
+            ->get()->getRowArray();
+
+        // Portfolio Domains
+        $this->data['portfolio_domains'] = $this->db->table('web_portfolio_domain')
+            ->select('*, CONCAT("' . PORTFOLIO_IMG . '", web_image) as image')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order', 'ASC')
+            ->get()->getResultArray();
+
+        // Showcase Projects
+        $showcases = $this->db->table('web_portfolio_showcase')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order', 'ASC')
+            ->get()->getResultArray();
+
+        foreach ($showcases as &$sc) {
+            $sc['execution_progress'] = json_decode($sc['execution_progress'], true) ?: [];
+            $sc['key_specifications'] = json_decode($sc['key_specifications'], true) ?: [];
+            $sc['design_highlights'] = json_decode($sc['design_highlights'], true) ?: [];
+            $sc['pcb_challenges'] = json_decode($sc['pcb_challenges'], true) ?: [];
+            $sc['frameworks_applied'] = json_decode($sc['frameworks_applied'], true) ?: [];
+            $sc['design_deliverables'] = json_decode($sc['design_deliverables'], true) ?: [];
+        }
+        $this->data['showcase_projects'] = $showcases;
+        
+        // Planned Showcase Designs
+        $planned = $this->db->table('web_planned_showcase')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order', 'ASC')
+            ->get()->getResultArray();
+        
+        $this->data['planned_showcases'] = $planned;
+
+        // Planned Showcase Intro
+        $this->data['planned_intro'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 17)
+            ->get()->getRowArray();
+
+        return view('frontent/portfolio', $this->data);
+    }
+
+    public function peri()
+    {
+        // META DATA
+        $this->data['meta'] = [
+            'meta_title' => 'PERI | Power Electronics Research Institute',
+            'meta_desc' => 'Academic Wing of Circuit Brilliance',
+            'meta_key' => 'Power Electronics, Research, Training'
+        ];
+
+        return view('frontent/PERI', $this->data);
+    }
+}
+

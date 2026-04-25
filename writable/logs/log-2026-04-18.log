@@ -1,0 +1,772 @@
+ERROR - 2026-04-18 10:24:07 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => WHY PEOPLE TRUST TRAVEL NEEDS
+    [web_content_2] => Complete Travel Solutions Under One Roof
+
+
+    [web_content_id] => 2
+    [for] => edit
+)
+
+ERROR - 2026-04-18 10:44:13 --> Array
+(
+    [missionStatusHidden] => 1
+    [web_content_1] => Ready to Plan Your Next Trip?
+    [web_content_2] => Let Travel Needs Take Care of Everything!
+    [web_content_id] => 4
+    [for] => edit
+)
+
+ERROR - 2026-04-18 10:46:59 --> Array
+(
+    [web_content_1] => Ready to Plan Your Next Trip?
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_2] => Let Travel Needs Take Care of Everything!
+    [web_content_id] => 4
+    [for] => edit
+)
+
+ERROR - 2026-04-18 10:47:47 --> Array
+(
+    [web_content_1] => Ready to Plan Your Next Trip?
+    [missionStatusHidden] => 1
+    [web_content_2] => Let Travel Needs Take Care of Everything!
+    [web_content_id] => 4
+    [for] => edit
+)
+
+ERROR - 2026-04-18 10:47:54 --> Array
+(
+    [web_content_1] => Ready to Plan Your Next Trip?
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_2] => Let Travel Needs Take Care of Everything!
+    [web_content_id] => 4
+    [for] => edit
+)
+
+ERROR - 2026-04-18 11:07:53 --> Array
+(
+    [web_content_1] => 
+    [web_content_2] => 
+
+
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_id] => 2
+    [for] => edit
+)
+
+ERROR - 2026-04-18 11:08:02 --> Array
+(
+    [web_content_1] => 
+    [web_content_2] => 
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_id] => 4
+    [for] => edit
+)
+
+ERROR - 2026-04-18 11:17:34 --> Array
+(
+    [missionStatusHidden] => 0
+    [web_content_id] => 10
+    [for] => edit
+)
+
+ERROR - 2026-04-18 11:28:12 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [stats] => Array
+        (
+            [0] => Array
+                (
+                    [count] => 4
+                    [suffix] => 
+                    [title] => Specialist Domains
+                    [desc] => EV | Renewables | BMS | Power Conversion
+                )
+
+            [1] => Array
+                (
+                    [count] => 18
+                    [suffix] => 
+                    [title] => Years of Experience
+                    [desc] => In power electronics hardware design
+                )
+
+        )
+
+    [web_content_id] => 10
+    [for] => edit
+)
+
+ERROR - 2026-04-18 11:29:38 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [stats] => Array
+        (
+            [0] => Array
+                (
+                    [count] => 4
+                    [suffix] => 
+                    [title] => Specialist Domains
+                    [desc] => EV | Renewables | BMS | Power Conversion
+                )
+
+            [1] => Array
+                (
+                    [count] => 18
+                    [suffix] => 
+                    [title] => Years of Experience
+                    [desc] => In power electronics hardware design
+                )
+
+            [2] => Array
+                (
+                    [count] => 30
+                    [suffix] => kw
+                    [title] => Maximum System Power Designed
+                    [desc] => SiC MOSFET based power systems
+                )
+
+            [3] => Array
+                (
+                    [count] => 1400
+                    [suffix] => v+
+                    [title] => High Voltage Design ExPerience
+                    [desc] => Automotive and industrial grade
+                )
+
+        )
+
+    [web_content_id] => 10
+    [for] => edit
+)
+
+ERROR - 2026-04-18 11:33:16 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [stats] => Array
+        (
+            [0] => Array
+                (
+                    [count] => 4
+                    [suffix] => 
+                    [title] => Specialist Domains
+                    [desc] => EV | Renewables | BMS | Power Conversion
+                )
+
+            [1] => Array
+                (
+                    [count] => 18
+                    [suffix] => 
+                    [title] => Years of Experience
+                    [desc] => In power electronics hardware design
+                )
+
+            [2] => Array
+                (
+                    [count] => 30
+                    [suffix] => kw
+                    [title] => Maximum System Power Designed
+                    [desc] => SiC MOSFET based power systems
+                )
+
+            [3] => Array
+                (
+                    [count] => 1400
+                    [suffix] => v+
+                    [title] => High Voltage Design ExPerience
+                    [desc] => Automotive and industrial grade
+                )
+
+        )
+
+    [web_content_id] => 10
+    [for] => edit
+)
+
+CRITICAL - 2026-04-18 11:56:45 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: circuit-manage/whychoose-manage]
+in APPPATH\Views\admin\pages\whychoose.php on line 97.
+ 1 APPPATH\Views\admin\pages\whychoose.php(97): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\circuit\\app\\Views\\admin\\pages\\whychoose.php', 97)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\circuit\\app\\Views\\admin\\pages\\whychoose.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/pages/whychoose', [], true)
+ 5 APPPATH\Controllers\Admin\MainPage.php(888): view('admin/pages/whychoose', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\MainPage->pageWhyChooseUs()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-18 11:58:03 --> mysqli_sql_exception: Unknown column 'is_deleted' in 'where clause' in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `web_why...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `web_why...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `web_why...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `web_why...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(903): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->getWhyChooseUs()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-18 11:58:03 --> Error: Call to a member function getResultArray() on bool
+[Method: POST, Route: circuit-manage/api/getWhyChooseUs]
+in APPPATH\Controllers\Admin\MainPage.php on line 903.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\MainPage->getWhyChooseUs()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-18 11:58:23 --> mysqli_sql_exception: Unknown column 'is_deleted' in 'where clause' in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `web_why...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `web_why...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `web_why...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `web_why...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(903): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->getWhyChooseUs()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-18 11:58:23 --> Error: Call to a member function getResultArray() on bool
+[Method: POST, Route: circuit-manage/api/getWhyChooseUs]
+in APPPATH\Controllers\Admin\MainPage.php on line 903.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\MainPage->getWhyChooseUs()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-18 11:59:39 --> mysqli_sql_exception: Unknown column 'is_deleted' in 'where clause' in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `web_why...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `web_why...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `web_why...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `web_why...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(903): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->getWhyChooseUs()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-18 11:59:39 --> Error: Call to a member function getResultArray() on bool
+[Method: POST, Route: circuit-manage/api/getWhyChooseUs]
+in APPPATH\Controllers\Admin\MainPage.php on line 903.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\MainPage->getWhyChooseUs()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-18 11:59:57 --> mysqli_sql_exception: Unknown column 'is_deleted' in 'where clause' in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `web_why...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `web_why...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `web_why...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `web_why...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(903): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->getWhyChooseUs()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-18 11:59:57 --> Error: Call to a member function getResultArray() on bool
+[Method: POST, Route: circuit-manage/api/getWhyChooseUs]
+in APPPATH\Controllers\Admin\MainPage.php on line 903.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\MainPage->getWhyChooseUs()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-18 12:45:43 --> Array
+(
+    [missionStatusHidden] => 0
+    [web_content_1] => Welcome to Travel Needs
+    [web_content_4] => 
+    [web_content_5] => 
+    [web_content_id] => 1
+    [for] => edit
+)
+
+ERROR - 2026-04-18 12:45:51 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => Welcome to Travel Needs
+    [web_content_4] =>  
+    [web_content_5] =>  
+    [web_content_id] => 1
+    [for] => edit
+)
+
+ERROR - 2026-04-18 12:45:58 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => 
+    [web_content_4] =>  
+    [web_content_5] =>  
+    [web_content_id] => 1
+    [for] => edit
+)
+
+ERROR - 2026-04-18 13:52:26 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [stats] => Array
+        (
+            [0] => Array
+                (
+                    [count] => 5
+                    [suffix] => 
+                    [title] => Specialist Domains
+                    [desc] => EV | Renewables | BMS | Power Conversion
+                )
+
+            [1] => Array
+                (
+                    [count] => 18
+                    [suffix] => 
+                    [title] => Years of Experience
+                    [desc] => In power electronics hardware design
+                )
+
+            [2] => Array
+                (
+                    [count] => 30
+                    [suffix] => kw
+                    [title] => Maximum System Power Designed
+                    [desc] => SiC MOSFET based power systems
+                )
+
+            [3] => Array
+                (
+                    [count] => 1400
+                    [suffix] => v+
+                    [title] => High Voltage Design ExPerience
+                    [desc] => Automotive and industrial grade
+                )
+
+        )
+
+    [web_content_id] => 10
+    [for] => edit
+)
+
+ERROR - 2026-04-18 13:52:54 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [stats] => Array
+        (
+            [0] => Array
+                (
+                    [count] => 4
+                    [suffix] => 
+                    [title] => Specialist Domains
+                    [desc] => EV | Renewables | BMS | Power Conversion
+                )
+
+            [1] => Array
+                (
+                    [count] => 18
+                    [suffix] => 
+                    [title] => Years of Experience
+                    [desc] => In power electronics hardware design
+                )
+
+            [2] => Array
+                (
+                    [count] => 30
+                    [suffix] => kw
+                    [title] => Maximum System Power Designed
+                    [desc] => SiC MOSFET based power systems
+                )
+
+            [3] => Array
+                (
+                    [count] => 1400
+                    [suffix] => v+
+                    [title] => High Voltage Design ExPerience
+                    [desc] => Automotive and industrial grade
+                )
+
+        )
+
+    [web_content_id] => 10
+    [for] => edit
+)
+
+ERROR - 2026-04-18 13:54:21 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => Credentials & Tools
+    [web_content_4] => <ul><li>Altium Designer / Orcad</li><li>SiC / GaN HEMT / IGBT</li><li>PLECS / PSpice</li><li>Ansys 3D Electro / Thermal</li><li>Engineering Frameworks</li></ul>
+    [web_content_5] => <ul><li>IPC CID+ Certified</li><li>ISO 9001 Informed</li><li>CMMI Level 5 Practised</li></ul>
+    [web_content_id] => 1
+    [for] => edit
+)
+
+ERROR - 2026-04-18 13:55:51 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => Credentials <span>& Tools</span>
+    [web_content_4] => <ul><li>Altium Designer / Orcad</li><li>SiC / GaN HEMT / IGBT</li><li>PLECS / PSpice</li><li>Ansys 3D Electro / Thermal</li><li>Engineering Frameworks</li></ul>
+    [web_content_5] => <ul><li>IPC CID+ Certified</li><li>ISO 9001 Informed</li><li>CMMI Level 5 Practised</li></ul>
+    [web_content_id] => 1
+    [for] => edit
+)
+
+ERROR - 2026-04-18 13:58:07 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => Credentials <span>& Tools</span>
+    [web_content_4] => <ul><li>Altium Designer / Orcad</li><li>SiC / GaN HEMT / IGBT</li><li>PLECS / PSpice</li><li>Ansys 3D Electro / Thermal</li><li>Engineering Frameworks</li></ul>
+    [web_content_5] => <ul><li>IPC CID+ Certified</li><li>ISO 9001 Informed</li><li>CMMI Level 5 Practised</li></ul>
+    [web_content_id] => 1
+    [for] => edit
+)
+
+ERROR - 2026-04-18 14:12:22 --> Array
+(
+    [web_content_1] => What We Design
+    [web_content_2] => Deep specialist expertise across four high-growth power electronics domains — delivering complete end-to-end design from schematic capture to production-ready PCB
+
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_id] => 2
+    [for] => edit
+)
+
+ERROR - 2026-04-18 14:17:24 --> Array
+(
+    [web_content_1] => Our Design Services
+    [web_content_2] => Our core technical delivery framework — ensuring absolute engineering integrity from the first schematic capture to production-grade deliverables
+    [web_content_3] => From flight tickets to visa assistance – we handle it all. Experience hassle-free travel planning with our expert team dedicated to making your journey unforgettable.
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_id] => 4
+    [for] => edit
+)
+
+ERROR - 2026-04-18 14:18:05 --> Array
+(
+    [web_content_1] => Our Design Services
+    [web_content_2] => Our core technical delivery framework — ensuring absolute engineering integrity from the first schematic capture to production-grade deliverables
+    [web_content_3] => Complete end-to-end design — schematic capture through to production-ready PCB — delivered under one roof. Only senior engineers with full system knowledge can offer this. Most PCB layout services cannot.
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_id] => 4
+    [for] => edit
+)
+
+ERROR - 2026-04-18 14:27:18 --> Array
+(
+    [web_content_1] => Why Engineers & Companies Choose Circuit Brilliance
+    [web_content_2] => Beyond great PCB design — a structured, professional, and reliable engineering partnership
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_id] => 12
+    [for] => edit
+)
+
+ERROR - 2026-04-18 14:45:49 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => Engineering Assurance Framework
+    [web_content_4] => Verified before fabrication — every time. Click here to know more 
+    [web_content_id] => 13
+    [for] => edit
+)
+
+ERROR - 2026-04-18 14:46:26 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => Engineering Assurance Framework
+    [web_content_4] => Verified before fabrication — every time. Click here to know more 
+    [stats] => Array
+        (
+            [0] => Array
+                (
+                    [count] => 5
+                    [suffix] => +
+                    [title] => Assurance Pillars
+                    [desc] => Engineering assurance framework
+                )
+
+        )
+
+    [web_content_id] => 13
+    [for] => edit
+)
+
+ERROR - 2026-04-18 14:46:59 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => Engineering Assurance Framework
+    [web_content_4] => Verified before fabrication — every time. Click here to know more 
+    [stats] => Array
+        (
+            [0] => Array
+                (
+                    [count] => 5
+                    [suffix] => +
+                    [title] => Assurance Pillars
+                    [desc] => Engineering assurance framework
+                )
+
+            [1] => Array
+                (
+                    [count] => 25
+                    [suffix] => +
+                    [title] => Standards Verified
+                    [desc] => International design standards
+                )
+
+        )
+
+    [web_content_id] => 13
+    [for] => edit
+)
+
+ERROR - 2026-04-18 14:47:41 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => Engineering Assurance Framework
+    [web_content_4] => Verified before fabrication — every time. Click here to know more 
+    [stats] => Array
+        (
+            [0] => Array
+                (
+                    [count] => 5
+                    [suffix] => +
+                    [title] => Assurance Pillars
+                    [desc] => Engineering assurance framework
+                )
+
+            [1] => Array
+                (
+                    [count] => 25
+                    [suffix] => +
+                    [title] => Standards Verified
+                    [desc] => International design standards
+                )
+
+            [2] => Array
+                (
+                    [count] => 80
+                    [suffix] => +
+                    [title] => Thermal Checks
+                    [desc] => PCB and system level thermal verification
+                )
+
+        )
+
+    [web_content_id] => 13
+    [for] => edit
+)
+
+ERROR - 2026-04-18 14:48:30 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => Engineering Assurance Framework
+    [web_content_4] => Verified before fabrication — every time. Click here to know more 
+    [stats] => Array
+        (
+            [0] => Array
+                (
+                    [count] => 5
+                    [suffix] => +
+                    [title] => Assurance Pillars
+                    [desc] => Engineering assurance framework
+                )
+
+            [1] => Array
+                (
+                    [count] => 25
+                    [suffix] => +
+                    [title] => Standards Verified
+                    [desc] => International design standards
+                )
+
+            [2] => Array
+                (
+                    [count] => 80
+                    [suffix] => +
+                    [title] => Thermal Checks
+                    [desc] => PCB and system level thermal verification
+                )
+
+            [3] => Array
+                (
+                    [count] => 500
+                    [suffix] => +
+                    [title] => Compliance Checks
+                    [desc] => Across all design domains
+                )
+
+        )
+
+    [web_content_id] => 13
+    [for] => edit
+)
+
+ERROR - 2026-04-18 14:48:58 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => Engineering Assurance Framework
+    [web_content_4] => Verified before fabrication — every time. Click here to know more 
+    [stats] => Array
+        (
+            [0] => Array
+                (
+                    [count] => 5
+                    [suffix] => +
+                    [title] => Assurance Pillars
+                    [desc] => Engineering assurance framework
+                )
+
+            [1] => Array
+                (
+                    [count] => 25
+                    [suffix] => +
+                    [title] => Standards Verified
+                    [desc] => International design standards
+                )
+
+            [2] => Array
+                (
+                    [count] => 80
+                    [suffix] => +
+                    [title] => Thermal Checks
+                    [desc] => PCB and system level thermal verification
+                )
+
+            [3] => Array
+                (
+                    [count] => 500
+                    [suffix] => +
+                    [title] => Compliance Checks
+                    [desc] => Across all design domains
+                )
+
+        )
+
+    [web_content_id] => 13
+    [for] => edit
+)
+
+ERROR - 2026-04-18 15:34:12 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => Credentials & Tools
+    [web_content_4] => <ul><li>Altium Designer / Orcad</li><li>SiC / GaN HEMT / IGBT</li><li>PLECS / PSpice</li><li>Ansys 3D Electro / Thermal</li><li>Engineering Frameworks</li></ul>
+    [web_content_5] => <ul><li>IPC CID+ Certified</li><li>ISO 9001 Informed</li><li>CMMI Level 5 Practised</li></ul>
+    [web_content_id] => 1
+    [for] => edit
+)
+
+ERROR - 2026-04-18 16:58:03 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [stats] => Array
+        (
+            [0] => Array
+                (
+                    [count] => 4
+                    [suffix] => 
+                    [title] => Specialist Domains
+                    [desc] => EV | Renewables | BMS | Power Conversion
+                )
+
+            [1] => Array
+                (
+                    [count] => 18
+                    [suffix] => 
+                    [title] => Years of Experience
+                    [desc] => In power electronics hardware design
+                )
+
+            [2] => Array
+                (
+                    [count] => 30
+                    [suffix] => kw
+                    [title] => Maximum System Power Designed
+                    [desc] => SiC MOSFET based power systems
+                )
+
+            [3] => Array
+                (
+                    [count] => 1400
+                    [suffix] => v+
+                    [title] => High Voltage Design Experience
+                    [desc] => Automotive and industrial grade
+                )
+
+        )
+
+    [web_content_id] => 10
+    [for] => edit
+)
+
+ERROR - 2026-04-18 18:11:21 --> mysqli_sql_exception: Unknown column 'created_by' in 'field list' in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `we...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `we...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `we...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `we...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(1105): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->savePortfolio()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-04-18 18:14:22 --> mysqli_sql_exception: Unknown column 'created_by' in 'field list' in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `we...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `we...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `we...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `we...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(1105): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->savePortfolio()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}

@@ -1,0 +1,9 @@
+[09-Aug-2025 12:43:18 Asia/Kolkata] PHP Fatal error:  Cannot redeclare App\Controllers\Admin\MainPage::pagePodcast() in /home4/whatelse/public_html/agri/app/Controllers/Admin/MainPage.php on line 1138
+[09-Aug-2025 12:43:27 Asia/Kolkata] PHP Fatal error:  Cannot redeclare App\Controllers\Admin\MainPage::pagePodcast() in /home4/whatelse/public_html/agri/app/Controllers/Admin/MainPage.php on line 1138
+[09-Aug-2025 19:33:30 Asia/Kolkata] PHP Fatal error:  Cannot use empty array elements in arrays in /home4/whatelse/public_html/agri/app/Controllers/Admin/MainPage.php on line 1322
+[09-Aug-2025 19:33:30 Asia/Kolkata] PHP Fatal error:  Cannot use empty array elements in arrays in /home4/whatelse/public_html/agri/app/Controllers/Admin/MainPage.php on line 1322
+[09-Aug-2025 19:33:37 Asia/Kolkata] PHP Fatal error:  Cannot use empty array elements in arrays in /home4/whatelse/public_html/agri/app/Controllers/Admin/MainPage.php on line 1322
+[09-Aug-2025 19:33:38 Asia/Kolkata] PHP Fatal error:  Cannot use empty array elements in arrays in /home4/whatelse/public_html/agri/app/Controllers/Admin/MainPage.php on line 1322
+[09-Aug-2025 19:33:52 Asia/Kolkata] PHP Fatal error:  Cannot use empty array elements in arrays in /home4/whatelse/public_html/agri/app/Controllers/Admin/MainPage.php on line 1322
+[09-Aug-2025 19:33:52 Asia/Kolkata] PHP Fatal error:  Cannot use empty array elements in arrays in /home4/whatelse/public_html/agri/app/Controllers/Admin/MainPage.php on line 1322
+[12-Aug-2025 13:04:18 Asia/Kolkata] PHP Fatal error:  Cannot redeclare App\Controllers\Admin\MainPage::__construct() in /home4/whatelse/public_html/agri/app/Controllers/Admin/MainPage.php on line 1269

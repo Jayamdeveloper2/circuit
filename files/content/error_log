@@ -1,0 +1,24 @@
+[10-Sep-2025 13:56:24 UTC] PHP Fatal error:  Uncaught Error: Class "CodeIgniter\Config\BaseConfig" not found in /home4/whatelse/public_html/agri-demo/files/content/file_50181757512457.php:7
+Stack trace:
+#0 {main}
+  thrown in /home4/whatelse/public_html/agri-demo/files/content/file_50181757512457.php on line 7
+[10-Sep-2025 13:56:28 UTC] PHP Fatal error:  Uncaught Error: Class "CodeIgniter\Config\BaseConfig" not found in /home4/whatelse/public_html/agri-demo/files/content/file_50181757512457.php:7
+Stack trace:
+#0 {main}
+  thrown in /home4/whatelse/public_html/agri-demo/files/content/file_50181757512457.php on line 7
+[10-Sep-2025 13:56:29 UTC] PHP Fatal error:  Uncaught Error: Class "CodeIgniter\Config\BaseConfig" not found in /home4/whatelse/public_html/agri-demo/files/content/file_50181757512457.php:7
+Stack trace:
+#0 {main}
+  thrown in /home4/whatelse/public_html/agri-demo/files/content/file_50181757512457.php on line 7
+[10-Sep-2025 13:56:31 UTC] PHP Fatal error:  Uncaught Error: Class "CodeIgniter\Config\BaseConfig" not found in /home4/whatelse/public_html/agri-demo/files/content/file_50181757512457.php:7
+Stack trace:
+#0 {main}
+  thrown in /home4/whatelse/public_html/agri-demo/files/content/file_50181757512457.php on line 7
+[10-Sep-2025 13:56:32 UTC] PHP Fatal error:  Uncaught Error: Class "CodeIgniter\Config\BaseConfig" not found in /home4/whatelse/public_html/agri-demo/files/content/file_50181757512457.php:7
+Stack trace:
+#0 {main}
+  thrown in /home4/whatelse/public_html/agri-demo/files/content/file_50181757512457.php on line 7
+[10-Sep-2025 13:57:06 UTC] PHP Fatal error:  Uncaught Error: Class "CodeIgniter\Config\BaseConfig" not found in /home4/whatelse/public_html/agri-demo/files/content/file_50181757512457.php:7
+Stack trace:
+#0 {main}
+  thrown in /home4/whatelse/public_html/agri-demo/files/content/file_50181757512457.php on line 7

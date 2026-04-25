@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'codeigniter4/framework',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'a168c6d909c6815a976b521d2f58ff8f8ac8e9e1',
+        'type' => 'project',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'codeigniter4/framework' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'a168c6d909c6815a976b521d2f58ff8f8ac8e9e1',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'firebase/php-jwt' => array(
+            'pretty_version' => 'v6.10.1',
+            'version' => '6.10.1.0',
+            'reference' => '500501c2ce893c824c801da135d02661199f60c5',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../firebase/php-jwt',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'shuchkin/simplexlsxgen' => array(
+            'pretty_version' => '1.4.13',
+            'version' => '1.4.13.0',
+            'reference' => 'a44de02fe239e45cc86469b33509b542e73abeb8',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../shuchkin/simplexlsxgen',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);
