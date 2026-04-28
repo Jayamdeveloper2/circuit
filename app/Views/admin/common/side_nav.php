@@ -114,6 +114,12 @@
                             <span>Engineering Assurance</span>
                         </a>
                     </li>
+                    <li class="  <?= ($routeName == "homeblogcontent-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/homeblogcontent-manage') ?>">
+                            <i class="fas fa-newspaper" style="font-size: 18px"></i>
+                            <span>Blog Content</span>
+                        </a>
+                    </li>
                     <li class="header fs-10 m-0 text-uppercase">About</li>
 
                     <li class="treeview <?= (in_array($routeName, ['aboutabout-manage', 'design-hub-manage', 'our-approach-manage', 'cred-badges-manage', 'how-we-work-manage', 'aboutquote', 'about-beliefs-manage', 'ourcorevalues-manage'])) ? "active menu-open" : "" ?>">
@@ -193,6 +199,24 @@
                         <a href="<?= base_url(ADMIN_NAME . '/ourcorevalues-manage') ?>">
                             <i class="fas fa-star" style="font-size: 18px"></i>
                             <span>Our Core Values</span>
+                        </a>
+                    </li>
+
+                    <li class="header fs-10 m-0 text-uppercase">Blog</li>
+                    
+                    <li class="  <?= ($routeName == "blog-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/blog-manage') ?>">                             
+                            <i class="fas fa-address-card" style="font-size: 18px"></i>
+                            <span>Blog List</span>
+                        </a>
+                    </li>
+
+                    <li class="header fs-10 m-0 text-uppercase">Call to action</li>
+                    
+                    <li class="  <?= ($routeName == "cta-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/cta-manage') ?>">                             
+                            <i class="fas fa-address-card" style="font-size: 18px"></i>
+                            <span>Call to action</span>
                         </a>
                     </li>
 
@@ -331,34 +355,26 @@
                     </li>
 
                     <li class="header fs-10 m-0 text-uppercase">Blog</li>
-                    
                     <li class="  <?= ($routeName == "blog-manage") ? "active" : "" ?>">
                         <a href="<?= base_url(ADMIN_NAME . '/blog-manage') ?>">                             
                             <i class="fas fa-address-card" style="font-size: 18px"></i>
                             <span>Blog List</span>
                         </a>
                     </li>
-                    
-                    <li class="header fs-10 m-0 text-uppercase">Get Involved</li>
-                    
-                    <li class="  <?= ($routeName == "involved-manage") ? "active" : "" ?>">
-                        <a href="<?= base_url(ADMIN_NAME . '/involved-manage') ?>">                             
-                            <i class="fas fa-address-card" style="font-size: 18px"></i>
-                            <span>Content</span>
-                        </a>
-                    </li>
 
                     <li class="  <?= ($routeName == "involvedlist-manage") ? "active" : "" ?>">
                         <a href="<?= base_url(ADMIN_NAME . '/involvedlist-manage') ?>">
                             <i class="fas fa-sitemap" style="font-size: 18px"></i>
-                            
                             <span>Involved List</span>
                         </a>
-                        <li class="<?= ($routeName == "donation-form-manage") ? "active" : "" ?>">
-                            <a href="<?= base_url(ADMIN_NAME . '/donation-form-manage') ?>">
-                                <i class="fas fa-donate" style="font-size: 18px"></i>
-                            <span>Donation Form</span>
                     </li>
+                    <li class="<?= ($routeName == "donation-form-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/donation-form-manage') ?>">
+                            <i class="fas fa-donate" style="font-size: 18px"></i>
+                            <span>Donation Form</span>
+                        </a>
+                    </li>
+
 
                     <li class="header fs-10 m-0 text-uppercase">Work with Us</li>
 

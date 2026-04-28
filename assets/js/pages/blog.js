@@ -15,8 +15,22 @@ var table_column = [
         width: "150px",
     },
     {
+        data: "web_tag",
+        title: "Tag",
+        is_default: true,
+        dt: true,
+        width: "100px",
+    },
+    {
+        data: "web_time",
+        title: "Date",
+        is_default: true,
+        dt: true,
+        width: "100px",
+    },
+    {
         data: "web_image",
-        width: "200px",
+        width: "100px",
         className: "text-center",
         title: "Image",
         is_default: false,
@@ -95,31 +109,18 @@ $(document).on("click", ".edit-blog", function () {
         if (result["code"] == 200 && result["data"].length != 0) {
             $(".blog-form input[name=web_blog_id]").val(result["data"][0]["web_blog_id"]);
             $(".blog-form input[name=web_title]").val(result["data"][0]["web_title"]);
-            $(".blog-form input[name=web_cate_name]").val(result["data"][0]["web_cate_name"]);
+            $(".blog-form input[name=web_tag]").val(result["data"][0]["web_tag"]);
             $(".blog-form textarea[name=web_desc]").val(result["data"][0]["web_desc"]);
+
             $(".blog-form textarea[name=web_content]").val(result["data"][0]["web_content"]).trigger('change');
-            $(".blog-form input[name=web_arthur_name]").val(result["data"][0]["web_arthur_name"]);
-            $(".blog-form input[name=web_client_name]").val(result["data"][0]["web_client_name"]);
-            $(".blog-form textarea[name=web_client_desc]").val(result["data"][0]["web_client_desc"]);
             $(".blog-form input[name=web_time]").val(result["data"][0]["web_time"]).trigger('change');
-            $(".blog-form input[name=web_client_name]").val(result["data"][0]["web_client_name"]);
             $(".blog-form input[name=display_order]").val(result["data"][0]["display_order"]);
             
-              $(".blog-form input[name=meta_title]").val(
-                    result["data"][0]["meta_title"]
-                    );
-
-            $(".blog-form textarea[name=meta_desc]").val(
-                    result["data"][0]["meta_desc"]
-                    );
-
-            $(".blog-form textarea[name=meta_key]").val(
-                    result["data"][0]["meta_key"]
-                    );
-            
+            $(".blog-form input[name=meta_title]").val(result["data"][0]["meta_title"]);
+            $(".blog-form textarea[name=meta_desc]").val(result["data"][0]["meta_desc"]);
+            $(".blog-form textarea[name=meta_key]").val(result["data"][0]["meta_key"]);
             
             $("#web_image").attr("src", result["data"][0]["web_image"]);
-            $("#web_client_image").attr("src", result["data"][0]["web_client_image"]);
         } else {
             vbk = "hide";
             Swal2("error", "Something Error", "Try Some again time");

@@ -78,12 +78,9 @@
 
                         </div>
                         <div class="d-flex align-items-center">
-                            <div class="me-auto">
-                                <h3 class="page-title"><?= isset($title) ? $title : "" ?></h3>
-                            </div>
                             <div>
                                 <button data-pid="-1" class="btn btn-primary edit-blog">
-                                    <i class="fi fi-br-plus"></i> Add <?= isset($title) ? $title : "" ?>
+                                    <i class="fi fi-br-plus"></i> Add
                                 </button>
                             </div>
                         </div>
@@ -136,25 +133,13 @@
                                                                     <div class="help-block"></div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">Category</label>
-                                                                    <div class="input-group">
-                                                                        <input type="text" name="web_cate_name" placeholder=""
-                                                                            class="form-control" required=""
-                                                                            data-validation-required-message="This field is required"
-                                                                            aria-invalid="false">
-                                                                    </div>
-                                                                    <div class="help-block"></div>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="form-label">Author Name</label>
+                                                                    <label class="form-label">Tag</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" name="web_arthur_name" placeholder=""
+                                                                        <input type="text" name="web_tag" placeholder=""
                                                                             class="form-control" required=""
                                                                             data-validation-required-message="This field is required"
                                                                             aria-invalid="false">
@@ -178,7 +163,7 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
-                                                                    <label class="form-label">Description</label>
+                                                                    <label class="form-label">Short Description</label>
                                                                     <div class="input-group mb-3">
                                                                         <textarea class="form-control text-counter"
                                                                             name="web_desc" maxlength="200"
@@ -200,7 +185,7 @@
                                                         <div class="row">
                                                             <div class="col-md-10">
                                                                 <div class="form-group">
-                                                                    <label class="form-label">Image</label>
+                                                                    <label class="form-label">Featured Image</label>
                                                                     <div class="product-img text-start">
                                                                         <div class="input-group">
                                                                             <input type="file" name="web_image"
@@ -213,104 +198,34 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <h3 class="text-center text-primary">User Message</h3>
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
-                                                                    <label class="form-label">Client Name</label>
-                                                                    <div class="input-group">
-                                                                        <input type="text" name="web_client_name" placeholder=""
-                                                                            class="form-control" required=""
-                                                                            data-validation-required-message="This field is required"
-                                                                            aria-invalid="false">
-                                                                    </div>
-                                                                    <div class="help-block"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">Description</label>
-                                                                    <div class="input-group mb-3">
-                                                                        <textarea class="form-control text-counter"
-                                                                            name="web_client_desc" maxlength="200"
-                                                                            rows="3"></textarea>
-                                                                    </div>
-                                                                    <div class="count-info"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-10">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">User Image</label>
-                                                                    <div class="product-img text-start">
-                                                                        <div class="input-group">
-                                                                            <input type="file" name="web_client_image"
-                                                                                class="form-control" accept=".jpg,.jpeg,.png,.webp,.gif">
-                                                                        </div>
-                                                                        <div id="photo-client-msg" class="text-danger"></div>
-                                                                        <img id="web_client_image" src="" height="120" alt="">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-md-10">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">
-                                                                        Meta Title
-                                                                    </label>
+                                                                    <label class="form-label">Meta Title</label>
                                                                     <div class="input-group">
                                                                         <input type="text" name="meta_title" placeholder=""
-                                                                            class="form-control"
-
-                                                                            aria-invalid="false">
+                                                                            class="form-control">
                                                                     </div>
-                                                                    <div class="help-block"></div>
                                                                 </div>
-
                                                             </div>
-
-
                                                         </div>
-
                                                         <div class="row">
-                                                            <div class="col-md-10">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="form-label">
-                                                                        Meta Description
-                                                                    </label>
+                                                                    <label class="form-label">Meta Description</label>
                                                                     <div class="input-group">
-                                                                        <textarea type="text" name="meta_desc" placeholder=""
-                                                                            class="form-control" rows="3"
-                                                                            data-validation-required-message="This field is required"></textarea>
+                                                                        <textarea name="meta_desc" class="form-control" rows="3"></textarea>
                                                                     </div>
-                                                                    <div class="help-block"></div>
                                                                 </div>
-
                                                             </div>
-
-
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-md-10">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="form-label">
-                                                                        Meta Keywords
-                                                                    </label>
+                                                                    <label class="form-label">Meta Keywords</label>
                                                                     <div class="input-group">
-                                                                        <textarea type="text" name="meta_key" placeholder=""
-                                                                            class="form-control" rows="3"
-                                                                            data-validation-required-message="This field is required"
-                                                                            aria-invalid="false"></textarea>
+                                                                        <textarea name="meta_key" class="form-control" rows="3"></textarea>
                                                                     </div>
-                                                                    <div class="help-block"></div>
                                                                 </div>
-
                                                             </div>
-
-
                                                         </div>
-
                                                         <div class="row">
                                                             <div class="col-md-10">
                                                                 <div class="form-group">
@@ -326,6 +241,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer modal-footer-uniform w-100">
@@ -390,7 +306,7 @@
                 // Function to delete an image via AJAX
                 function deleteImage(imageUrl) {
                     const xhr = new XMLHttpRequest();
-                    xhr.open('POST', '<?php echo base_url('manage-agri/delete-blog-content-image'); ?>', true);
+                    xhr.open('POST', '<?php echo base_url(ADMIN_NAME . "/delete-blog-content-image"); ?>', true);
                     xhr.setRequestHeader('Content-Type', 'application/json');
                     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
                     xhr.onreadystatechange = function() {
@@ -436,7 +352,7 @@
                     }
                     _initRequest() {
                         const xhr = this.xhr = new XMLHttpRequest();
-                        xhr.open('POST', '<?php echo base_url('manage-agri/upload-blog-content-image'); ?>', true);
+                        xhr.open('POST', '<?php echo base_url(ADMIN_NAME . "/upload-blog-content-image"); ?>', true);
                         xhr.responseType = 'json';
                         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
                     }
@@ -500,11 +416,14 @@
                                 'imageTextAlternative'
                             ]
                         },
+                        mediaEmbed: {
+                            previewsInData: true
+                        },
                         toolbar: [
                             'heading', '|',
                             'bold', 'italic', 'link', '|',
                             'bulletedList', 'numberedList', '|',
-                            'imageUpload', 'blockQuote', '|',
+                            'imageUpload', 'insertImage', 'mediaEmbed', 'blockQuote', '|',
                             'undo', 'redo'
                         ]
                     })

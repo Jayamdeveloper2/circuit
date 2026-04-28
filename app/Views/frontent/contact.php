@@ -27,31 +27,37 @@
         <div class="cb-cards-grid">
 
             <!-- Email Card -->
-            <a href="mailto:contact@circuitbrilliance.com" class="cb-channel-card cb-card-email" data-aos="fade-up" data-aos-delay="100">
+            <?php if (!empty($setting['user_email'])): ?>
+            <a href="mailto:<?= esc($setting['user_email']) ?>" class="cb-channel-card cb-card-email" data-aos="fade-up" data-aos-delay="100">
                 <div class="cb-cc-icon"><i class="fa-solid fa-envelope"></i></div>
                 <h3 class="cb-cc-title">✉ Email</h3>
-                <p class="cb-cc-detail">contact@circuitbrilliance.com</p>
+                <p class="cb-cc-detail"><?= esc($setting['user_email']) ?></p>
                 <p class="cb-cc-sub">For detailed project briefs</p>
                 <div class="cb-cc-arrow"><i class="fa-solid fa-arrow-right"></i></div>
             </a>
+            <?php endif; ?>
 
             <!-- WhatsApp Card -->
-            <a href="https://wa.me/918870174864" target="_blank" rel="noopener noreferrer" class="cb-channel-card cb-card-wa" data-aos="fade-up" data-aos-delay="200">
+            <?php if (!empty($setting['user_phone_1'])): ?>
+            <a href="https://wa.me/<?= preg_replace('/[^0-9]/', '', $setting['user_phone_1']) ?>" target="_blank" rel="noopener noreferrer" class="cb-channel-card cb-card-wa" data-aos="fade-up" data-aos-delay="200">
                 <div class="cb-cc-icon"><i class="fa-brands fa-whatsapp"></i></div>
                 <h3 class="cb-cc-title">💬 WhatsApp</h3>
                 <p class="cb-cc-detail">Message us directly</p>
                 <p class="cb-cc-sub">For quick questions and fast responses</p>
                 <div class="cb-cc-arrow"><i class="fa-solid fa-arrow-right"></i></div>
             </a>
+            <?php endif; ?>
 
             <!-- LinkedIn Card -->
-            <a href="https://www.linkedin.com/company/circuit-brilliance" target="_blank" rel="noopener noreferrer" class="cb-channel-card cb-card-in" data-aos="fade-up" data-aos-delay="300">
+            <?php if (!empty($setting['linkedin_url'])): ?>
+            <a href="<?= esc($setting['linkedin_url']) ?>" target="_blank" rel="noopener noreferrer" class="cb-channel-card cb-card-in" data-aos="fade-up" data-aos-delay="300">
                 <div class="cb-cc-icon"><i class="fa-brands fa-linkedin-in"></i></div>
                 <h3 class="cb-cc-title">in LinkedIn</h3>
                 <p class="cb-cc-detail">Connect with us</p>
                 <p class="cb-cc-sub">Circuit Brilliance — Power Electronics Design Hub</p>
                 <div class="cb-cc-arrow"><i class="fa-solid fa-arrow-right"></i></div>
             </a>
+            <?php endif; ?>
 
         </div>
     </div>
@@ -66,35 +72,41 @@
 
             <!-- LEFT COLUMN — Contact Details Strip -->
             <div class="contact-details-box" data-aos="fade-right">
+                <?php if (!empty($setting['user_email'])): ?>
                 <div class="cd-item">
                     <div class="cd-icon"><i class="fa-solid fa-envelope"></i></div>
                     <div class="cd-info">
                         <span class="cd-label">Email Us</span>
                         <div class="cd-detail">
-                            <a href="mailto:contact@circuitbrilliance.com">contact@circuitbrilliance.com</a>
+                            <a href="mailto:<?= esc($setting['user_email']) ?>"><?= esc($setting['user_email']) ?></a>
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
 
+                <?php if (!empty($setting['user_phone_1'])): ?>
                 <div class="cd-item">
                     <div class="cd-icon"><i class="fa-brands fa-whatsapp"></i></div>
                     <div class="cd-info">
                         <span class="cd-label">WhatsApp</span>
                         <div class="cd-detail">
-                            <a href="https://wa.me/918870174864" target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>
+                            <a href="https://wa.me/<?= preg_replace('/[^0-9]/', '', $setting['user_phone_1']) ?>" target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
 
+                <?php if (!empty($setting['linkedin_url'])): ?>
                 <div class="cd-item">
                     <div class="cd-icon"><i class="fa-brands fa-linkedin-in"></i></div>
                     <div class="cd-info">
                         <span class="cd-label">LinkedIn</span>
                         <div class="cd-detail">
-                            <a href="https://www.linkedin.com/company/circuit-brilliance" target="_blank" rel="noopener noreferrer">Circuit Brilliance</a>
+                            <a href="<?= esc($setting['linkedin_url']) ?>" target="_blank" rel="noopener noreferrer">Circuit Brilliance</a>
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
 
                 <div class="cd-item">
                     <div class="cd-icon"><i class="fa-solid fa-clock"></i></div>

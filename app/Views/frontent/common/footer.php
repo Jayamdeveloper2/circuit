@@ -25,24 +25,24 @@
                     <div class="ftr-col">
                         <h6>Quick Links</h6>
                         <ul>
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="domain-service.php">Domain Services</a></li>
-                            <li><a href="frameworks.php">Proprietary Frameworks</a></li>
-                            <li><a href="PERI.php">PERI</a></li>
-                            <li><a href="portfolio.php">Portfolio</a></li>
-                            <li><a href="blog.php">Blog</a></li>
-                            <li><a href="about.php">About</a></li>
-                            <li><a href="contact.php">Contact Us</a></li>
+                            <li><a href="<?= base_url() ?>">Home</a></li>
+                            <li><a href="<?= base_url('domain-service') ?>">Domain Services</a></li>
+                            <li><a href="<?= base_url('frameworks') ?>">Proprietary Frameworks</a></li>
+                            <li><a href="<?= base_url('peri') ?>">PERI</a></li>
+                            <li><a href="<?= base_url('portfolio') ?>">Portfolio</a></li>
+                            <li><a href="<?= base_url('blog') ?>">Blog</a></li>
+                            <li><a href="<?= base_url('about') ?>">About</a></li>
+                            <li><a href="<?= base_url('contact') ?>">Contact Us</a></li>
                         </ul>
                     </div>
                     <!-- Col 3: Our Services -->
                     <div class="ftr-col">
                         <h6>Our Services</h6>
                         <ul>
-                            <li><a href="domain-service.php#ev">EV Power Electronics</a></li>
-                            <li><a href="domain-service.php#renewable">Renewable Energy Electronics</a></li>
-                            <li><a href="domain-service.php#bms">Battery Management Systems</a></li>
-                            <li><a href="domain-service.php#converters">Power Converters &amp; SMPS</a></li>
+                            <li><a href="<?= base_url('domain-service#ev') ?>">EV Power Electronics</a></li>
+                            <li><a href="<?= base_url('domain-service#renewable') ?>">Renewable Energy Electronics</a></li>
+                            <li><a href="<?= base_url('domain-service#bms') ?>">Battery Management Systems</a></li>
+                            <li><a href="<?= base_url('domain-service#converters') ?>">Power Converters &amp; SMPS</a></li>
                         </ul>
                     </div>
                     <!-- Col 4: Contact Us -->
@@ -75,7 +75,7 @@
         <div class="ftr-copy">
             <div class="container">
                 <div class="ftr-copy-inner">
-                    <span>&copy; <?php echo date('Y'); ?> Circuit Brilliance. All rights reserved. | <a href="index.php">circuitbrilliance.com</a></span>
+                    <span>&copy; <?php echo date('Y'); ?> Circuit Brilliance. All rights reserved. | <a href="<?= base_url() ?>">circuitbrilliance.com</a></span>
                     <a href="https://jayamwebsolutions.com/web-design-company-in-chennai.php" target="_blank" rel="noopener noreferrer">Developed by Jayam Web Solutions</a>
                 </div>
             </div>

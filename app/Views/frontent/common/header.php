@@ -8,7 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="Specialist power electronics PCB design services — EV, renewable energy, BMS, and power conversion. IPC CID+ certified with 18+ years of expertise. Global engineering consultancy.">
-    <link rel="canonical" href="">
+    <link rel="canonical" href="<?= current_url() ?>">
+
+    <!-- Open Graph for Social Media -->
+    <?php if (isset($meta)): ?>
+    <meta property="og:title" content="<?= isset($meta['meta_title']) ? esc($meta['meta_title']) : 'Circuit Brilliance | Power Electronics PCB Design' ?>">
+    <meta property="og:description" content="<?= isset($meta['meta_desc']) ? esc($meta['meta_desc']) : 'Specialist power electronics PCB design services — EV, renewable energy, BMS, and power conversion.' ?>">
+    <meta property="og:image" content="<?= isset($meta['meta_image']) ? esc($meta['meta_image']) : base_url('frontent_assets/img/logo/logo.png') ?>">
+    <meta property="og:url" content="<?= isset($meta['meta_url']) ? esc($meta['meta_url']) : current_url() ?>">
+    <meta property="og:type" content="article">
+    <?php endif; ?>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -119,26 +128,26 @@
                     </a>
                 </div>
                 <!-- Desktop Nav -->
-                <?php $current_page = basename($_SERVER['PHP_SELF']); ?>
+                <?php $current_uri = uri_string(); ?>
                 <nav class="hdr-nav" role="navigation" aria-label="Main navigation">
                     <ul class="nav-ul">
-                        <li class="<?php echo ($current_page == 'index.php') ? 'active' : ''; ?>"><a href="index.php">Home</a></li>
-                        <li class="has-dropdown <?php echo (in_array($current_page, ['domain-service.php', 'frameworks.php'])) ? 'active' : ''; ?>">
+                        <li class="<?php echo ($current_uri == '' || $current_uri == 'index.php' || $current_uri == 'home') ? 'active' : ''; ?>"><a href="<?= base_url() ?>">Home</a></li>
+                        <li class="has-dropdown <?php echo (strpos($current_uri, 'domain-service') !== false || strpos($current_uri, 'frameworks') !== false) ? 'active' : ''; ?>">
                             <a href="#">Services <i class="fas fa-chevron-down" style="font-size:10px; margin-left:3px;"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="<?php echo ($current_page == 'domain-service.php') ? 'active' : ''; ?>"><a href="domain-service.php">Domain Services</a></li>
-                                <li class="<?php echo ($current_page == 'frameworks.php') ? 'active' : ''; ?>"><a href="frameworks.php">Proprietary Frameworks</a></li>
+                                <li class="<?php echo (strpos($current_uri, 'domain-service') !== false) ? 'active' : ''; ?>"><a href="<?= base_url('domain-service') ?>">Domain Services</a></li>
+                                <li class="<?php echo (strpos($current_uri, 'frameworks') !== false) ? 'active' : ''; ?>"><a href="<?= base_url('frameworks') ?>">Proprietary Frameworks</a></li>
                             </ul>
                         </li>
-                        <li class="<?php echo ($current_page == 'PERI.php') ? 'active' : ''; ?>"><a href="PERI.php">PERI</a></li>
-                        <li class="<?php echo ($current_page == 'portfolio.php') ? 'active' : ''; ?>"><a href="portfolio.php">Portfolio</a></li>
-                        <li class="<?php echo ($current_page == 'blog.php') ? 'active' : ''; ?>"><a href="blog.php">Blog</a></li>
-                        <li class="<?php echo ($current_page == 'about.php') ? 'active' : ''; ?>"><a href="about.php">About</a></li>
+                        <li class="<?php echo (strpos($current_uri, 'peri') !== false) ? 'active' : ''; ?>"><a href="<?= base_url('peri') ?>">PERI</a></li>
+                        <li class="<?php echo (strpos($current_uri, 'portfolio') !== false) ? 'active' : ''; ?>"><a href="<?= base_url('portfolio') ?>">Portfolio</a></li>
+                        <li class="<?php echo (strpos($current_uri, 'blog') !== false) ? 'active' : ''; ?>"><a href="<?= base_url('blog') ?>">Blog</a></li>
+                        <li class="<?php echo (strpos($current_uri, 'about') !== false) ? 'active' : ''; ?>"><a href="<?= base_url('about') ?>">About</a></li>
                     </ul>
                 </nav>
                 <!-- Actions -->
                 <div class="hdr-actions">
-                    <a href="contact.php" class="btn-cta-hdr">Contact Us</a>
+                    <a href="<?= base_url('contact') ?>" class="btn-cta-hdr">Contact Us</a>
                     <a href="https://www.linkedin.com/company/circuit-brilliance" target="_blank" rel="noopener noreferrer" class="hdr-icon" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
@@ -158,22 +167,22 @@
     <div class="mnav" id="mnav" role="dialog" aria-modal="true" aria-label="Navigation menu">
         <div class="mnav-panel">
             <div class="mnav-hdr">
-                <span class="mnav-brand"><img src="assets/img/logo.png"
+                <span class="mnav-brand"><img src="<?= FRONT_CSS_PATH ?>/img/logo/logo.png"
                         style="height:45px; width:auto; background:white; padding:5px; border-radius:8px;"></span>
                 <span class="mnav-x" id="mnav-x" role="button" tabindex="0" aria-label="Close menu">&times;</span>
             </div>
             <div class="mnav-links">
-                <a href="index.php" class="<?php echo ($current_page == 'index.php') ? 'active' : ''; ?>">Home</a>
+                <a href="<?= base_url() ?>" class="<?php echo ($current_uri == '' || $current_uri == 'index.php' || $current_uri == 'home') ? 'active' : ''; ?>">Home</a>
                 <a href="#" style="font-weight: 700; color: var(--navy);">Services</a>
-                <a href="domain-service.php" class="<?php echo ($current_page == 'domain-service.php') ? 'active' : ''; ?>" style="padding-left: 40px; font-size: 14px; border-bottom: none; padding-top: 5px; padding-bottom: 5px; color: var(--text-mid); text-decoration: none;">- Domain Services</a>
-                <a href="frameworks.php" class="<?php echo ($current_page == 'frameworks.php') ? 'active' : ''; ?>" style="padding-left: 40px; font-size: 14px; padding-top: 5px; padding-bottom: 12px; color: var(--text-mid); text-decoration: none;">- Proprietary Frameworks</a>
-                <a href="PERI.php" class="<?php echo ($current_page == 'PERI.php') ? 'active' : ''; ?>" style="font-weight: 700;">PERI</a>
-                <a href="portfolio.php" class="<?php echo ($current_page == 'portfolio.php') ? 'active' : ''; ?>">Portfolio</a>
-                <a href="blog.php" class="<?php echo ($current_page == 'blog.php') ? 'active' : ''; ?>">Blog</a>
-                <a href="about.php" class="<?php echo ($current_page == 'about.php') ? 'active' : ''; ?>">About</a>
+                <a href="<?= base_url('domain-service') ?>" class="<?php echo (strpos($current_uri, 'domain-service') !== false) ? 'active' : ''; ?>" style="padding-left: 40px; font-size: 14px; border-bottom: none; padding-top: 5px; padding-bottom: 5px; color: var(--text-mid); text-decoration: none;">- Domain Services</a>
+                <a href="<?= base_url('frameworks') ?>" class="<?php echo (strpos($current_uri, 'frameworks') !== false) ? 'active' : ''; ?>" style="padding-left: 40px; font-size: 14px; padding-top: 5px; padding-bottom: 12px; color: var(--text-mid); text-decoration: none;">- Proprietary Frameworks</a>
+                <a href="<?= base_url('peri') ?>" class="<?php echo (strpos($current_uri, 'peri') !== false) ? 'active' : ''; ?>" style="font-weight: 700;">PERI</a>
+                <a href="<?= base_url('portfolio') ?>" class="<?php echo (strpos($current_uri, 'portfolio') !== false) ? 'active' : ''; ?>">Portfolio</a>
+                <a href="<?= base_url('blog') ?>" class="<?php echo (strpos($current_uri, 'blog') !== false) ? 'active' : ''; ?>">Blog</a>
+                <a href="<?= base_url('about') ?>" class="<?php echo (strpos($current_uri, 'about') !== false) ? 'active' : ''; ?>">About</a>
             </div>
             <div class="mnav-foot">
-                <a href="contact.php" class="mnav-btn">Contact Us</a>
+                <a href="<?= base_url('contact') ?>" class="mnav-btn">Contact Us</a>
                 <div class="mnav-socials">
                     <a href="https://www.linkedin.com/company/circuit-brilliance" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
                             class="fab fa-linkedin-in"></i></a>

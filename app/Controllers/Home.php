@@ -145,6 +145,26 @@ class Home extends BaseController
             ->orderBy('display_order', 'ASC')
             ->get()->getResultArray();
 
+        // CTA for Home
+        $this->data['cta'] = $this->db->table('web_call_to_action')
+            ->where('tag', 'home')
+            ->where('status', 1)
+            ->get()->getRowArray();
+
+        // Blog Content for Home
+        $this->data['home_blog_content'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 31)
+            ->get()->getRowArray();
+
+        // Fetch latest blogs for list and carousel
+        $this->data['blogs'] = $this->db->table('web_blog')
+            ->where('is_active', 1)
+            ->where('is_deleted', 0)
+            ->orderBy('created_on', 'DESC')
+            ->limit(6)
+            ->get()->getResultArray();
+
         // Your file is in frontend subfolder, so use:
         return view('frontent/index', $this->data);
     }
@@ -227,6 +247,12 @@ class Home extends BaseController
             ->orderBy('display_order', 'ASC')
             ->get()->getResultArray();
 
+        // CTA for About
+        $this->data['cta'] = $this->db->table('web_call_to_action')
+            ->where('tag', 'about')
+            ->where('status', 1)
+            ->get()->getRowArray();
+
         return view('frontent/about', $this->data);
     }
     public function pageservices($slug = null)
@@ -281,6 +307,12 @@ class Home extends BaseController
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
 
+        // CTA for Services
+        $this->data['cta'] = $this->db->table('web_call_to_action')
+            ->where('tag', 'domain-services')
+            ->where('status', 1)
+            ->get()->getRowArray();
+
         return view('frontent/services', $this->data);
     }
 
@@ -308,6 +340,12 @@ class Home extends BaseController
             ->where('is_active', 1)
             ->get()->getResultArray();
 
+        // CTA for Gallery
+        $this->data['cta'] = $this->db->table('web_call_to_action')
+            ->where('tag', 'contact')
+            ->where('status', 1)
+            ->get()->getRowArray();
+
         return view('frontent/gallery', $this->data);
     }
 
@@ -329,6 +367,12 @@ class Home extends BaseController
             ->where('web_setting_id', 1)
             ->get()->getRowArray();
 
+
+        // CTA for Contact
+        $this->data['cta'] = $this->db->table('web_call_to_action')
+            ->where('tag', 'contact')
+            ->where('status', 1)
+            ->get()->getRowArray();
 
         return view('frontent/contact', $this->data);
     }
@@ -404,6 +448,12 @@ class Home extends BaseController
             ->where('web_content_id', 17)
             ->get()->getRowArray();
 
+        // CTA for Portfolio
+        $this->data['cta'] = $this->db->table('web_call_to_action')
+            ->where('tag', 'contact')
+            ->where('status', 1)
+            ->get()->getRowArray();
+
         return view('frontent/portfolio', $this->data);
     }
 
@@ -417,6 +467,73 @@ class Home extends BaseController
         ];
 
         return view('frontent/PERI', $this->data);
+    }
+
+    public function pageBlog()
+    {
+        $this->data['meta'] = [
+            'meta_title' => 'Insights & Engineering Blog | Circuit Brilliance',
+            'meta_desc' => 'Deep dives into power electronics, PCB design, and technical frameworks.',
+            'meta_key' => 'Power Electronics Blog, PCB Design Insights'
+        ];
+
+        $this->data['blogs'] = $this->db->table('web_blog')
+            ->where('is_active', 1)
+            ->where('is_deleted', 0)
+            ->orderBy('display_order', 'ASC')
+            ->get()->getResultArray();
+
+        // CTA for Blog
+        $this->data['cta'] = $this->db->table('web_call_to_action')
+            ->where('tag', 'blog')
+            ->where('status', 1)
+            ->get()->getRowArray();
+
+        return view('frontent/blog', $this->data);
+    }
+
+    public function pageBlogDetail($slug = null)
+    {
+        if ($slug) {
+            $blog = $this->db->table('web_blog')
+                ->where('web_slug', $slug)
+                ->where('is_active', 1)
+                ->where('is_deleted', 0)
+                ->get()->getRowArray();
+
+            if ($blog) {
+                $this->data['blog'] = $blog;
+                $this->data['meta'] = [
+                    'meta_title' => $blog['meta_title'] ?: $blog['web_title'],
+                    'meta_desc' => $blog['meta_desc'] ?: substr(strip_tags($blog['web_content']), 0, 160),
+                    'meta_key' => $blog['meta_key'] ?: $blog['web_tag'],
+                    'meta_image' => !empty($blog['web_image']) ? base_url(BLOG_IMG . $blog['web_image']) : base_url(LOGO),
+                    'meta_url' => current_url()
+                ];
+
+                $this->data['recent_blogs'] = $this->db->table('web_blog')
+                    ->where('is_active', 1)
+                    ->where('is_deleted', 0)
+                    ->where('web_blog_id !=', $blog['web_blog_id'])
+                    ->orderBy('created_on', 'DESC')
+                    ->limit(4)
+                    ->get()->getResultArray();
+
+                // CTA for Bottom (ID 5)
+                $this->data['cta_bottom'] = $this->db->table('web_call_to_action')
+                    ->where('web_call_to_action_id', 5)
+                    ->get()->getRowArray();
+
+                // CTA for Sidebar (ID 6)
+                $this->data['cta_sidebar'] = $this->db->table('web_call_to_action')
+                    ->where('web_call_to_action_id', 6)
+                    ->get()->getRowArray();
+
+                return view('frontent/blog-details', $this->data);
+            }
+        }
+        
+        return redirect()->to(base_url('blog'));
     }
 }
 

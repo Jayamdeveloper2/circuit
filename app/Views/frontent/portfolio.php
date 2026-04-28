@@ -259,33 +259,35 @@
 <?php endif; ?>
 
 <!-- ════════════════ RECOGNISE YOUR DESIGN CHALLENGE HERE? (CTA) ════════════════ -->
+<?php if (!empty($cta) && $cta['status'] == 1): ?>
 <section class="cta-sec" id="contact-cta">
     <div class="container">
         <div class="cta-inner wow zoomIn">
-            <h2 class="cta-h">Recognise Your Design <span>Challenge Here?</span></h2>
-            <p class="cta-sub">The same structured methodology — six analytical frameworks, CB-CRAFT PCB execution, and
-                18 years of domain depth — is what every Circuit Brilliance client engagement gets. If you are working
-                on a power electronics design and need a partner who understands the hardware at this level, the
-                conversation starts here.</p>
+            <h2 class="cta-h"><?= $cta['title'] ?></h2>
+            <div class="cta-sub"><?= $cta['content'] ?></div>
 
-            <a href="contact.php" class="btn-cta">Start a Conversation →</a>
+            <a href="<?= base_url('contact') ?>" class="btn-cta">Start a Conversation →</a>
 
             <div class="cta-channels">
-                <a href="contact.php" class="cta-chan">
+                <a href="<?= base_url('contact') ?>" class="cta-chan">
                     <div class="cc-icon"><i class="fa-solid fa-file-signature"></i></div>
                     <div class="cc-text">
                         <span>Contact Form</span>
                         <strong>Fill in our project inquiry form</strong>
                     </div>
                 </a>
-                <a href="mailto:contact@circuitbrilliance.com" class="cta-chan">
+                
+                <?php if (!empty($setting['user_email'])): ?>
+                <a href="mailto:<?= esc($setting['user_email']) ?>" class="cta-chan">
                     <div class="cc-icon"><i class="fa-solid fa-envelope"></i></div>
                     <div class="cc-text">
                         <span>Email</span>
-                        <strong>contact@circuitbrilliance.com</strong>
+                        <strong><?= esc($setting['user_email']) ?></strong>
                     </div>
                 </a>
-                <a href="frameworks.php" class="cta-chan">
+                <?php endif; ?>
+
+                <a href="<?= base_url('frameworks') ?>" class="cta-chan">
                     <div class="cc-icon"><i class="fa-solid fa-microchip"></i></div>
                     <div class="cc-text">
                         <span>Explore Frameworks</span>
@@ -296,5 +298,6 @@
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <?php include 'common/footer.php'; ?>

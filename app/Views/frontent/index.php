@@ -250,23 +250,28 @@
 <?php endif; ?>
 
 <!-- ════════════════ BLOG — SPLIT INFINITE CAROUSEL ════════════════ -->
+<?php if (!empty($home_blog_content) && $home_blog_content['status'] == 1): ?>
 <section class="blog-sec" id="blog">
     <div class="container">
         <div class="blog-split">
 
             <!-- LEFT: Content Panel -->
             <div class="blog-left wow fadeInLeft">
-                <h2>From the Circuit<br><span>Brilliance Blog</span></h2>
-                <p class="blog-sub">Design insights, engineering tips and power electronics thinking — straight from the
-                    workbench.</p>
+                <h2><?= $home_blog_content['web_content_1'] ?? 'From the Circuit<br><span>Brilliance Blog</span>' ?></h2>
+                <div class="blog-sub">
+                    <?= $home_blog_content['web_content_2'] ?? 'Design insights, engineering tips and power electronics thinking — straight from the workbench.' ?>
+                </div>
 
                 <ul class="blog-link-list">
-                    <li><i class="fa-solid fa-arrow-right"></i> SiC Gate Driver Grounding — Two Mistakes That Will Ruin
-                        Your Bring-Up</li>
-                    <li><i class="fa-solid fa-arrow-right"></i> UCC14141 and UCC21755 — What the Datasheet Does Not Tell
-                        You</li>
-                    <li><i class="fa-solid fa-arrow-right"></i> Why Your RC Filter Stops Working When the Power Comes On
-                    </li>
+                    <?php if(!empty($blogs)): ?>
+                        <?php foreach(array_slice($blogs, 0, 3) as $blog): ?>
+                        <li>
+                            <a href="<?= base_url('blog/' . $blog['web_slug']) ?>" style="color: inherit; text-decoration: none;">
+                                <i class="fa-solid fa-arrow-right"></i> <?= esc($blog['web_title']) ?>
+                            </a>
+                        </li>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </ul>
             </div>
 
@@ -281,53 +286,31 @@
                 </div>
                 <div class="blog-track-wrap" id="blogTrackWrap">
                     <div class="blog-track" id="blogTrack">
-
-                        <!-- Card 1 -->
+                    <?php if(!empty($blogs)): ?>
+                        <?php foreach($blogs as $blog): ?>
                         <div class="blog-card">
-                            <div class="bc-img"><img src="assets/img/blog_ev.png" alt="EV Power Electronics"></div>
+                            <div class="bc-img">
+                                <img src="<?= !empty($blog['web_image']) ? BLOG_IMG . $blog['web_image'] : base_url('assets/img/blog_placeholder.png') ?>" alt="<?= esc($blog['web_title']) ?>">
+                            </div>
                             <div class="bc-body">
-                                <span class="bc-cat ev">EV Power Electronics</span>
-                                <h4>SiC Gate Driver Grounding — Two Mistakes That Will Ruin Your Bring-Up</h4>
-                                <p>Critical grounding mistakes in SiC gate driver design that can cause failure during
-                                    bring-up. Full blog coming soon...</p>
+                                <span class="bc-cat ev"><?= esc($blog['web_tag']) ?></span>
+                                <h4><?= esc($blog['web_title']) ?></h4>
+                                <p><?= esc(mb_strimwidth(strip_tags($blog['web_content']), 0, 120, '...')) ?></p>
                                 <div class="bc-foot">
-                                    <span><i class="fa-regular fa-calendar"></i> Upcoming</span>
-                                    <a href="blog.php">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                    <span><i class="fa-regular fa-calendar"></i> <?= !empty($blog['web_time']) ? esc($blog['web_time']) : date('M j, Y', strtotime($blog['created_on'])) ?></span>
+                                    <a href="<?= base_url('blog/' . $blog['web_slug']) ?>">Read More <i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Card 2 -->
+                        <?php endforeach; ?>
+                    <?php else: ?>
                         <div class="blog-card">
-                            <div class="bc-img"><img src="assets/img/blog_smps.png" alt="Power Converters"></div>
                             <div class="bc-body">
-                                <span class="bc-cat smps">Power Converters & SMPS</span>
-                                <h4>UCC14141 and UCC21755 — What the Datasheet Does Not Tell You</h4>
-                                <p>Practical insights and hidden behaviors of these ICs that are often missed during
-                                    design. Full blog coming soon...</p>
-                                <div class="bc-foot">
-                                    <span><i class="fa-regular fa-calendar"></i> Upcoming</span>
-                                    <a href="blog.php">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                                </div>
+                                <p>No articles available at the moment.</p>
                             </div>
                         </div>
-
-                        <!-- Card 3 (Placeholder) -->
-                        <div class="blog-card">
-                            <div class="bc-img"><img src="assets/img/blog_smps.png" alt="RC Filter"></div>
-                            <div class="bc-body">
-                                <span class="bc-cat ev">Power Electronics</span>
-                                <h4>Why Your RC Filter Stops Working When the Power Comes On</h4>
-                                <p>A practical look at why RC filters behave differently under real operating
-                                    conditions. Full blog coming soon...</p>
-                                <div class="bc-foot">
-                                    <span><i class="fa-regular fa-calendar"></i> Upcoming</span>
-                                    <a href="blog.php">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                    <?php endif; ?>
+                </div>
                 </div>
             </div>
 
@@ -360,22 +343,21 @@
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <!-- ════════════════ LET'S WORK TOGETHER (CTA) ════════════════ -->
+<?php if (!empty($cta) && $cta['status'] == 1): ?>
 <section class="cta-sec" id="contact-cta">
-
     <div class="container">
         <div class="cta-inner wow zoomIn">
-            <h2 class="cta-h">Let's Work <span>Together</span></h2>
-            <p class="cta-sub">Whether you are an EV startup, a renewable energy company, or an industrial electronics
-                team — Circuit Brilliance is ready to help. No obligation — just a straightforward conversation about
-                your project.</p>
+            <h2 class="cta-h"><?= $cta['title'] ?></h2>
+            <div class="cta-sub"><?= $cta['content'] ?></div>
 
-            <a href="contact.php" class="btn-cta">Contact Us</a>
+            <a href="<?= base_url('contact') ?>" class="btn-cta">Contact Us</a>
 
             <div class="cta-channels">
                 <!-- Form -->
-                <a href="contact.php" class="cta-chan">
+                <a href="<?= base_url('contact') ?>" class="cta-chan">
                     <div class="cc-icon"><i class="fa-solid fa-file-signature"></i></div>
                     <div class="cc-text">
                         <span>Contact Form</span>
@@ -384,25 +366,30 @@
                 </a>
 
                 <!-- Email -->
-                <a href="mailto:contact@circuitbrilliance.com" class="cta-chan">
+                <?php if (!empty($setting['user_email'])): ?>
+                <a href="mailto:<?= esc($setting['user_email']) ?>" class="cta-chan">
                     <div class="cc-icon"><i class="fa-solid fa-envelope"></i></div>
                     <div class="cc-text">
                         <span>Email</span>
-                        <strong>contact@circuitbrilliance.com</strong>
+                        <strong><?= esc($setting['user_email']) ?></strong>
                     </div>
                 </a>
+                <?php endif; ?>
 
                 <!-- WhatsApp -->
-                <a href="https://wa.me/918870174864" target="_blank" rel="noopener noreferrer" class="cta-chan">
+                <?php if (!empty($setting['user_phone_1'])): ?>
+                <a href="https://wa.me/<?= preg_replace('/[^0-9]/', '', $setting['user_phone_1']) ?>" target="_blank" rel="noopener noreferrer" class="cta-chan">
                     <div class="cc-icon"><i class="fa-brands fa-whatsapp"></i></div>
                     <div class="cc-text">
                         <span>WhatsApp</span>
                         <strong>Message us on WhatsApp</strong>
                     </div>
                 </a>
+                <?php endif; ?>
             </div>
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <?php include('common/footer.php'); ?>
