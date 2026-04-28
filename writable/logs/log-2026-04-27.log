@@ -1,0 +1,267 @@
+CRITICAL - 2026-04-27 11:24:30 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "frontent/services.php"
+[Method: GET, Route: domain-service.php]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('frontent/services.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('frontent/services', [], true)
+ 3 APPPATH\Controllers\Home.php(296): view('frontent/services', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->pageservices('domain-service')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 11:24:44 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "frontent/services.php"
+[Method: GET, Route: domain-service.php]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('frontent/services.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('frontent/services', [], true)
+ 3 APPPATH\Controllers\Home.php(296): view('frontent/services', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->pageservices('domain-service')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 11:24:50 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "frontent/services.php"
+[Method: GET, Route: domain-service.php]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('frontent/services.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('frontent/services', [], true)
+ 3 APPPATH\Controllers\Home.php(296): view('frontent/services', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->pageservices('domain-service')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 12:22:39 --> ErrorException: Undefined variable $data
+[Method: GET, Route: circuit-manage/services-manage]
+in APPPATH\Views\admin\pages\services.php on line 73.
+ 1 APPPATH\Views\admin\pages\services.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'D:\\xampp\\htdocs\\circuit\\app\\Views\\admin\\pages\\services.php', 73)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\circuit\\app\\Views\\admin\\pages\\services.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/pages/services', [], true)
+ 5 APPPATH\Controllers\Admin\MainPage.php(1688): view('admin/pages/services', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\MainPage->pageApproach()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 12:22:47 --> ErrorException: Undefined variable $data
+[Method: GET, Route: circuit-manage/services-manage]
+in APPPATH\Views\admin\pages\services.php on line 73.
+ 1 APPPATH\Views\admin\pages\services.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'D:\\xampp\\htdocs\\circuit\\app\\Views\\admin\\pages\\services.php', 73)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\circuit\\app\\Views\\admin\\pages\\services.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/pages/services', [], true)
+ 5 APPPATH\Controllers\Admin\MainPage.php(1688): view('admin/pages/services', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\MainPage->pageApproach()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 12:22:52 --> ErrorException: Undefined variable $data
+[Method: GET, Route: circuit-manage/services-manage]
+in APPPATH\Views\admin\pages\services.php on line 73.
+ 1 APPPATH\Views\admin\pages\services.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'D:\\xampp\\htdocs\\circuit\\app\\Views\\admin\\pages\\services.php', 73)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\circuit\\app\\Views\\admin\\pages\\services.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/pages/services', [], true)
+ 5 APPPATH\Controllers\Admin\MainPage.php(1688): view('admin/pages/services', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\MainPage->pageApproach()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 17:10:40 --> ParseError: Unmatched '}'
+[Method: GET, Route: circuit-manage/domain-services-manage]
+in APPPATH\Controllers\Admin\MainPage.php on line 3456.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\circuit\\app\\Controllers\\Admin\\MainPage.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\MainPage')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\MainPage')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Admin\\MainPage', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 17:10:46 --> ParseError: Unmatched '}'
+[Method: GET, Route: circuit-manage/menu-manage]
+in APPPATH\Controllers\Admin\MainPage.php on line 3456.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\circuit\\app\\Controllers\\Admin\\MainPage.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\MainPage')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\MainPage')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Admin\\MainPage', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 17:10:50 --> ParseError: Unmatched '}'
+[Method: GET, Route: circuit-manage/menu-manage]
+in APPPATH\Controllers\Admin\MainPage.php on line 3456.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\circuit\\app\\Controllers\\Admin\\MainPage.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\MainPage')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\MainPage')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Admin\\MainPage', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 17:11:39 --> ParseError: Unmatched '}'
+[Method: GET, Route: circuit-manage/menu-manage]
+in APPPATH\Controllers\Admin\MainPage.php on line 3456.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\circuit\\app\\Controllers\\Admin\\MainPage.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\MainPage')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\MainPage')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Admin\\MainPage', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-27 17:26:48 --> mysqli_sql_exception: Unknown column 'updated_at' in 'field list' in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `web_con...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `web_con...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `web_con...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `web_con...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(3426): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->saveFrameworkHero()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-04-27 17:35:47 --> mysqli_sql_exception: Unknown column 'updated_at' in 'field list' in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `web_con...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `web_con...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `web_con...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `web_con...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(3426): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->saveFrameworkHero()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-04-27 17:37:14 --> mysqli_sql_exception: CONSTRAINT `web_framework_details.chart_data` failed for `circuitbrilliance_db`.`web_framework_details` in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `we...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `we...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `we...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `we...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(3455): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->saveFramework()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-04-27 17:38:02 --> mysqli_sql_exception: Unknown column 'updated_at' in 'field list' in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `web_con...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `web_con...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `web_con...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `web_con...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(3426): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->saveFrameworkHero()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-04-27 17:41:05 --> mysqli_sql_exception: Unknown column 'updated_at' in 'field list' in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `web_con...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `web_con...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `web_con...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `web_con...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(3426): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->saveFrameworkHero()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-04-27 17:41:45 --> mysqli_sql_exception: Unknown column 'updated_at' in 'field list' in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `web_con...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `web_con...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `web_con...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `web_con...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(3426): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->saveFrameworkHero()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-04-27 17:55:29 --> mysqli_sql_exception: Unknown column 'updated_at' in 'field list' in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `we...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `we...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `we...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `we...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(3432): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->saveFrameworkHero()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-04-27 18:04:46 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `we...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `we...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `we...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `we...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(3493): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(3403): App\Controllers\Admin\MainPage->seedFrameworks()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->pageFrameworks()
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#8 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2026-04-27 18:49:37 --> ErrorException: Array to string conversion
+[Method: GET, Route: frameworks.php]
+in APPPATH\Views\frontent\frameworks.php on line 211.
+ 1 APPPATH\Views\frontent\frameworks.php(211): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'D:\\xampp\\htdocs\\circuit\\app\\Views\\frontent\\frameworks.php', 211)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\circuit\\app\\Views\\frontent\\frameworks.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('frontent/frameworks', [], true)
+ 5 APPPATH\Controllers\Home.php(506): view('frontent/frameworks', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->pageframeworks()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 18:49:37 --> ErrorException: Array to string conversion
+[Method: GET, Route: frameworks.php]
+in APPPATH\Views\frontent\frameworks.php on line 211.
+ 1 APPPATH\Views\frontent\frameworks.php(211): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'D:\\xampp\\htdocs\\circuit\\app\\Views\\frontent\\frameworks.php', 211)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\circuit\\app\\Views\\frontent\\frameworks.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('frontent/frameworks', [], true)
+ 5 APPPATH\Controllers\Home.php(506): view('frontent/frameworks', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->pageframeworks()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

@@ -175,16 +175,16 @@
 
 
 
+<?php if (isset($mission_hub_data['status']) && $mission_hub_data['status'] == 1) : ?>
 <!-- ════════════════ MISSION HUB — MINIMALIST DECLARATION ════════════════ -->
 <section class="hub-mission-sec">
     <div class="container">
         <div class="mission-text wow fadeInUp">
-            <p>Circuit Brilliance is built to be more than a design service — it is a growing power electronics design
-                hub, bringing together deep engineering expertise, structured processes, and real-world project
-                exPerience to serve the global EV and renewable energy community.</p>
+            <p><?= $mission_hub_data['web_content_1'] ?? 'Circuit Brilliance is built to be more than a design service — it is a growing power electronics design hub, bringing together deep engineering expertise, structured processes, and real-world project exPerience to serve the global EV and renewable energy community.' ?></p>
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <?php if (isset($whychoose_data['status']) && $whychoose_data['status'] == 1) : ?>
 <!-- ════════════════ WHY CHOOSE — FEATURE GRID ════════════════ -->

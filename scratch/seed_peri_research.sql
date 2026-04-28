@@ -1,0 +1,12 @@
+INSERT INTO web_content (web_content_id, `for`, web_content_1, web_content_2, web_image_1, web_content_3, web_content_4, web_content_5, web_content_6, web_content_7, web_content_8, web_content_9) VALUES (20, 'peri_research', 
+'For Institutions , Universities <span>and Industry Partners</span>', 
+'PERI is the structured research and academic collaboration arm of Circuit Brilliance. It provides the environment through which Circuit Brilliance''s proprietary analytical frameworks are academically validated, where technical whitepapers and research notes are developed and published, and where partnerships with university power electronics departments are established and grown.', 
+'PERI_p1.webp', 
+'[{"num":"01","name":"Research & Framework Validation","text":"Academically validates Circuit Brilliance''s six proprietary frameworks across real power electronics design scenarios."},{"num":"02","name":"Technical Publications","text":"Publishes whitepapers and research notes grounded in 18 years of real engineering experience — written for practising engineers."},{"num":"03","name":"University Collaboration","text":"Research partnerships with power electronics departments — joint research, knowledge exchange, and co-publication."},{"num":"04","name":"Engineer Development","text":"Structured training programmes developing engineers from graduate fundamentals to advanced SiC/GaN, magnetics, and EMI."}]',
+'Interested in collaborating with PERI? We welcome conversations with university research groups, industry partners, and institutions at any stage of interest.',
+'Conventional Engineering Education',
+'The PERI Approach',
+'["Chapter-by-chapter theory — without design context", "Concepts delivered before the design demands them", "Simulation only — no real design workflow", "No exposure to professional EDA tools", "Assessment by examination — not by doing", "Resume skills that are never actually practised"]',
+'["Built around a real power electronics product development journey", "Every concept introduced when the design actually needs it", "Real design workflow — tools, trade-offs, and fabrication outputs", "Altium Designer, LTSpice, HyperLynx, Ansys Q3D — industry standard", "Assessment by project delivery and demonstration", "Every skill listed is a skill practised. Every project is real."]',
+'"A PERI student does not walk into a placement interview as a fresher. He walks in as an engineer who has not yet received his first payslip."'
+) ON DUPLICATE KEY UPDATE `for`='peri_research';

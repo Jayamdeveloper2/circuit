@@ -10,12 +10,15 @@ $routes->setDefaultMethod('index');
 $routes->get('/', 'Home::index', ['as' => 'index']);
 $routes->get('home', 'Home::index', ['as' => 'index']);
 $routes->get('about', 'Home::pageabout', ['as' => 'about']);
-$routes->get('about.php', 'Home::pageabout');
+
 $routes->get('portfolio', 'Home::pageportfolio');
-$routes->get('portfolio.php', 'Home::pageportfolio');
-$routes->get('peri', 'Home::peri');
+
 $routes->get('PERI', 'Home::peri');
-$routes->get('PERI.php', 'Home::peri');
+
+$routes->get('domain-service', 'Home::pagedomainservice');
+
+$routes->get('frameworks', 'Home::pageframeworks');
+$routes->get('contact', 'Home::pagecontact');
 $routes->get('api/common-data', 'Home::getCommonData');
 
 
@@ -111,6 +114,8 @@ $routes->group(ADMIN_NAME, function ($routes) {
 
     //Home About Content
     $routes->get('homeaboutcontent-manage', 'Admin\MainPage::pageHomeAbout', ['as' => 'homeaboutcontent-manage']);
+    // Home Mission Hub
+    $routes->get('homemission-manage', 'Admin\MainPage::pageHomeMission', ['as' => 'homemission-manage']);
     // our services
     $routes->get('what-we-design-manage', 'Admin\MainPage::pageAboutOurBusiness', ['as' => 'what-we-design-manage']);
     //our design
@@ -153,13 +158,32 @@ $routes->group(ADMIN_NAME, function ($routes) {
 
     // Portfolio
     $routes->get('portfolio-manage', 'Admin\MainPage::pagePortfolio', ['as' => 'portfolio-manage']);
+    $routes->get('peri-content-manage', 'Admin\MainPage::pagePERIContent', ['as' => 'peri-content-manage']);
+    $routes->get('peri-training-manage', 'Admin\MainPage::pagePERITraining', ['as' => 'peri-training-manage']);
+    $routes->get('peri-research-manage', 'Admin\MainPage::pagePERIResearch', ['as' => 'peri-research-manage']);
+    $routes->get('peri-anchors-manage', 'Admin\MainPage::pagePERIAnchors', ['as' => 'peri-anchors-manage']);
+    $routes->get('peri-ctas-manage', 'Admin\MainPage::pagePERICTAs', ['as' => 'peri-ctas-manage']);
+    $routes->post('getPERIAnchors', 'Admin\MainPage::getPERIAnchors');
+    $routes->post('savePERIAnchors', 'Admin\MainPage::savePERIAnchors');
     $routes->get('showcase-manage', 'Admin\MainPage::pageShowcase', ['as' => 'showcase-manage']);
     $routes->get('planned-showcase-manage', 'Admin\MainPage::pagePlannedShowcase', ['as' => 'planned-showcase-manage']);
-
-
-
+    $routes->post('getPERICTAs', 'Admin\MainPage::getPERICTAs');
+    $routes->post('savePERICTAs', 'Admin\MainPage::savePERICTAs');
+    $routes->get('domain-services-manage', 'Admin\MainPage::pageDomainServices', ['as' => 'domain-services-manage']);
+    $routes->get('frameworks-manage', 'Admin\MainPage::pageFrameworks', ['as' => 'frameworks-manage']);
 
     $routes->group('api', function ($routes) {
+        $routes->match(['get', 'post'], 'getDomainServices', 'Admin\MainPage::getDomainServices');
+        $routes->post('saveDomainServices', 'Admin\MainPage::saveDomainServices');
+        $routes->post('saveDomainHero', 'Admin\MainPage::saveDomainHero');
+        
+        $routes->match(['get', 'post'], 'getFrameworks', 'Admin\MainPage::getFrameworks');
+        $routes->post('saveFramework', 'Admin\MainPage::saveFramework');
+        $routes->post('saveFrameworkContent', 'Admin\MainPage::saveFrameworkContent');
+        $routes->post('saveFrameworkHero', 'Admin\MainPage::saveFrameworkHero');
+        $routes->post('deleteFramework', 'Admin\MainPage::deleteFramework');
+        $routes->get('seed-frameworks', 'Admin\MainPage::seedFrameworks');
+        
         //Auth  
         $routes->post('loginCheck', 'Admin\Auth::loginCheck');
         $routes->post('changeUserPassword', 'Admin\Auth::changeUserPassword');
@@ -230,7 +254,6 @@ $routes->group(ADMIN_NAME, function ($routes) {
         $routes->post('getEventVideos', 'Admin\MainPage::getEventVideos');
         $routes->post('saveEventVideo', 'Admin\MainPage::saveEventVideo');
 
-        //Gallery
         $routes->post('getGallery', 'Admin\MainPage::getGallery');
         $routes->post('saveGallery', 'Admin\MainPage::saveGallery');
     });

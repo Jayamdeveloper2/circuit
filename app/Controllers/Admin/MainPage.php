@@ -581,6 +581,29 @@ class MainPage extends BaseController
         return view('admin/pages/homeaboutcontent', $page);
     }
 
+    public function pageHomeMission()
+    {
+        if (!session()->get('user_login_id')) {
+            return redirect()->to(base_url(ADMIN_NAME));
+        }
+
+        $page['data'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 22)
+            ->get()->getRowArray();
+
+        // If no data exists, create a default record
+        if (!$page['data']) {
+            $default_text = "Circuit Brilliance is built to be more than a design service — it is a growing power electronics design hub, bringing together deep engineering expertise, structured processes, and real-world project exPerience to serve the global EV and renewable energy community.";
+            $this->db->table('web_content')->insert(['web_content_id' => 22, 'status' => 1, 'web_content_1' => $default_text]);
+            $page['data'] = $this->db->table('web_content')->where('web_content_id', 22)->get()->getRowArray();
+        }
+
+        $page['title'] = "Mission Hub";
+        $page['breadcrumb'] = '<div class="own-breadcrumb">Home <i style="font-size:14px" class="fas fa-chevron-right"></i> <span>Mission Hub</span></div>';
+        return view('admin/pages/homemission', $page);
+    }
+
     // Home our services
     public function pageAboutOurBusiness()
     {
@@ -2190,14 +2213,11 @@ class MainPage extends BaseController
             return $this->respond([], 'Session Expired', 404);
         }
         $data = $this->request->getPost();
-        log_message('error',  print_r($data, true));
-        $stats = $this->request->getPost('stats') ?? [];
-        if ($stats) {
-            if (!is_array($stats)) {
-                $stats = []; // ensure it's always an array
-
-            }
-            $data['web_content_2'] = json_encode($stats, JSON_UNESCAPED_UNICODE);
+        log_message('error', 'saveContent called, for=' . ($data['for'] ?? 'NONE') . ' web_content_id=' . ($data['web_content_id'] ?? 'NONE'));
+        
+        // Handle checkbox status (if unchecked, it's not sent)
+        if (($data['for'] ?? '') == 'save_training') {
+            $data['status'] = isset($data['status']) ? 1 : 0;
         }
         $file = $this->request->getFile('web_file_1');
         if ($file && $file->isValid() && !$file->hasMoved()) {
@@ -2229,6 +2249,8 @@ class MainPage extends BaseController
 
         // Check Mandatory Fielda
         switch ($data['for'] ?? '') {
+            case "save_training":
+            case "save_research":
             case "edit":
                 $manda_arr = [];
                 $allowedFields = [
@@ -2287,102 +2309,47 @@ class MainPage extends BaseController
         if ($manda) {
             return $this->respond([], $manda, 404);
         }
-        $file = $this->request->getFile('web_image_1');
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-            // Define the upload directory (root folder)
-            $uploadPath = ROOTPATH . 'images/content/';
-
-            // Ensure the upload directory exists
-            if (!is_dir($uploadPath)) {
-                mkdir($uploadPath, 0755, true);
+        // Handle web_image_1 to web_image_5 and web_file_1
+        $fileFields = ['web_image_1', 'web_image_2', 'web_image_3', 'web_image_4', 'web_image_5', 'web_file_1'];
+        foreach ($fileFields as $field) {
+            $file = $this->request->getFile($field);
+            if ($file && $file->isValid() && !$file->hasMoved()) {
+                // Use FCPATH which is the precise entry point (usually same as root in this project)
+                $uploadPath = strpos($field, 'image') !== false ? FCPATH . 'images/content/' : FCPATH . 'files/content/';
+                if (!is_dir($uploadPath)) mkdir($uploadPath, 0755, true);
+                
+                $newName = "content_" . rand(99, 9999) . time() . '.' . $file->getExtension();
+                if ($file->move($uploadPath, $newName)) {
+                    $data[$field] = $newName;
+                } else {
+                    return $this->respond([], "Unable to save " . $field, 404);
+                }
+            } else {
+                // IMPORTANT: Unset if not uploaded to keep existing value in DB
+                unset($data[$field]);
             }
-            $newName = "content_" . rand(99, 9999) . time() . '.' . $file->getExtension();
-
-            if (!$file->move($uploadPath, $newName)) {
-                return $this->respond([], "Unable to save Image", 404);
-            }
-            $data['web_image_1'] = $newName;
-        }
-
-        $file = $this->request->getFile('web_image_2');
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-            // Define the upload directory (root folder)
-            $uploadPath = ROOTPATH . 'images/content/';
-
-            // Ensure the upload directory exists
-            if (!is_dir($uploadPath)) {
-                mkdir($uploadPath, 0755, true);
-            }
-            $newName = "content_" . rand(99, 9999) . time() . '.' . $file->getExtension();
-
-            if (!$file->move($uploadPath, $newName)) {
-                return $this->respond([], "Unable to save Image", 404);
-            }
-            $data['web_image_2'] = $newName;
-        }
-
-        $file = $this->request->getFile('web_image_3');
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-            // Define the upload directory (root folder)
-            $uploadPath = ROOTPATH . 'images/content/';
-
-            // Ensure the upload directory exists
-            if (!is_dir($uploadPath)) {
-                mkdir($uploadPath, 0755, true);
-            }
-            $newName = "content_" . rand(99, 9999) . time() . '.' . $file->getExtension();
-
-            if (!$file->move($uploadPath, $newName)) {
-                return $this->respond([], "Unable to save Image", 404);
-            }
-            $data['web_image_3'] = $newName;
-        }
-        $file = $this->request->getFile('web_image_4');
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-            // Define the upload directory (root folder)
-            $uploadPath = ROOTPATH . 'images/content/';
-
-            // Ensure the upload directory exists
-            if (!is_dir($uploadPath)) {
-                mkdir($uploadPath, 0755, true);
-            }
-            $newName = "content_" . rand(99, 9999) . time() . '.' . $file->getExtension();
-
-            if (!$file->move($uploadPath, $newName)) {
-                return $this->respond([], "Unable to save Image", 404);
-            }
-            $data['web_image_4'] = $newName;
-        }
-        $file = $this->request->getFile('web_image_5');
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-            // Define the upload directory (root folder)
-            $uploadPath = ROOTPATH . 'images/content/';
-
-            // Ensure the upload directory exists
-            if (!is_dir($uploadPath)) {
-                mkdir($uploadPath, 0755, true);
-            }
-            $newName = "content_" . rand(99, 9999) . time() . '.' . $file->getExtension();
-
-            if (!$file->move($uploadPath, $newName)) {
-                return $this->respond([], "Unable to save Image", 404);
-            }
-            $data['web_image_5'] = $newName;
         }
         $updateData = array_intersect_key($data, array_flip($allowedFields));
 
-        $builder = $this->db->table('web_content');
-        if ($data['web_content_id'] > 0) {
-            $updateData['updated_by'] = session()->get('user_login_id');
-            $updateData['updated_on'] = date('Y-m-d H:i:s');
-            $builder->where('web_content_id', $data['web_content_id']);
-            if (!$builder->update($updateData)) {
-                return $this->respond($data, 'Unable Update Data', 404);
+        try {
+            $builder = $this->db->table('web_content');
+            if (($data['web_content_id'] ?? 0) > 0) {
+                $updateData['updated_by'] = session()->get('user_login_id');
+                $updateData['updated_on'] = date('Y-m-d H:i:s');
+                $builder->where('web_content_id', $data['web_content_id']);
+                if (!$builder->update($updateData)) {
+                    log_message('error', 'Update failed for ID ' . $data['web_content_id']);
+                    return $this->respond($data, 'Unable Update Data', 404);
+                }
+            } else {
+                return $this->respond($data, 'Invalid ID for Update', 404);
             }
-        } else {
-            return $this->respond($data, 'Unable to save Data', 404);
+        } catch (\Exception $e) {
+            log_message('error', 'SQL Error: ' . $e->getMessage());
+            return $this->respond([], 'Database Error: ' . $e->getMessage(), 500);
         }
-        return $this->respond([], 'successfully');
+
+        return $this->respond(['status' => 'success'], 'successfully');
     }
 
     public function pageMeasured()
@@ -3019,6 +2986,737 @@ class MainPage extends BaseController
 
         return $this->respond([], "Missing 'for' action", 404);
     }
+
+    public function pagePERIContent()
+    {
+        if (!session()->get('user_login_id')) {
+            return redirect()->to(base_url(ADMIN_NAME));
+        }
+
+        $page['data'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 18)
+            ->get()->getRowArray();
+
+        // Seed if missing
+        if (!$page['data']) {
+            $defaultData = [
+                'web_content_id' => 18,
+                'page_name' => 'PERI',
+                'web_tag' => 'Introduction',
+                'web_content_1' => 'Power Electronics Research Institute',
+                'web_content_2' => 'PERI exists at the intersection of rigorous engineering practice and structured knowledge development. Where Circuit Brilliance applies domain expertise to client design engagements, PERI directs that same expertise in two directions — toward developing engineers who are genuinely ready for industry, and toward advancing power electronics knowledge through research, publication, and academic collaboration.',
+                'status' => 1
+            ];
+            $this->db->table('web_content')->insert($defaultData);
+            $page['data'] = $this->db->table('web_content')->where('web_content_id', 18)->get()->getRowArray();
+        }
+
+        $page['title'] = "PERI Content";
+        $page['breadcrumb'] = '<div class="own-breadcrumb">PERI <i style="font-size:14px" class="fas fa-chevron-right"></i> <span>Introduction</span></div>';
+        $page['routeName'] = "peri-content-manage";
+        return view('admin/pages/peri_content', $page);
+    }
+
+    public function pagePERITraining()
+    {
+        if (!session()->get('user_login_id')) {
+            return redirect()->to(base_url(ADMIN_NAME));
+        }
+
+        $page['data'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 19)
+            ->get()->getRowArray();
+
+        // Seed if missing
+        if (!$page['data']) {
+            $defaultData = [
+                'web_content_id' => 19,
+                'web_content_1'  => 'For Students & Graduates',
+                'web_content_2'  => 'The Recruiter Moment',
+                'web_content_3'  => 'A technical recruiter sits across 40 final-year students. Interview after interview — textbook answers, nervous faces, same pattern. Then one student walks in.',
+                'web_content_4'  => 'Asked about gate drive design for a SiC MOSFET, he does not recite a definition. He talks about turn-on resistance, Miller plateau, negative bias requirements, layout parasitics — the way a working engineer speaks after two years on the job.',
+                'web_content_5'  => 'The recruiter stops writing. Looks up. "Where did you learn this?"',
+                'web_content_6'  => 'Certificate Programme in Power Electronics Product Development',
+                'web_content_7'  => 'A 3-month structured programme — 30% concepts, 70% real design work. Students design a real power electronics product from blank schematic to fabrication-ready output, using the same tools that engineers use in real companies.',
+                'web_content_8'  => json_encode([
+                    ['num' => '40', 'text' => 'Students interviewed, same generic result'],
+                    ['num' => '1', 'text' => 'Student who stood apart with real design instinct'],
+                    ['badge' => 'DAY 1', 'text' => 'Ready to contribute, what recruiters actually want']
+                ]),
+                'web_content_9'  => json_encode([
+                    ['icon' => 'fa-clock', 'name' => 'Duration', 'text' => '3 months'],
+                    ['icon' => 'fa-laptop', 'name' => 'Delivery', 'text' => 'Online delivery'],
+                    ['icon' => 'fa-calendar-alt', 'name' => 'Schedule', 'text' => 'Weekend + weekday sessions'],
+                    ['icon' => 'fa-medal', 'name' => 'Outcome', 'text' => 'Certificate + Digital Badge + Project Portfolio']
+                ]),
+                'web_image_1' => 'peri-interview.webp',
+                'status'      => 1,
+                'web_content_10' => json_encode([
+                    'Engineering Product Development Life Cycle',
+                    'Power Electronics Concepts & Circuit Design',
+                    'Schematic Design & SPICE Simulation',
+                    'PCB Layout — Placement, Routing & DRC',
+                    'Signal Integrity & Power Delivery Network Analysis',
+                    'Documentation, BOM & Design for Manufacturing',
+                    'Final Project — Design, Review & Presentation'
+                ]),
+                'web_content_11' => json_encode([
+                    ['name' => 'Altium Designer', 'desc' => 'Professional EDA'],
+                    ['name' => 'LTSpice / PSpice', 'desc' => 'Simulation'],
+                    ['name' => 'HyperLynx', 'desc' => 'Signal & Power Integrity'],
+                    ['name' => 'Ansys Q3D', 'desc' => 'Parasitic Extraction'],
+                    ['name' => 'Gerber / ODB++', 'desc' => 'Fabrication Output']
+                ]),
+                'web_content_12' => 'AI teaches you what to say. PERI teaches you what to know',
+                'web_content_13' => json_encode([
+                    'Explain every formula in your textbook',
+                    'Define SiC, GaN, PFC, DAB on demand',
+                    'Generate circuit descriptions instantly',
+                    'Produce a perfect-looking resume'
+                ]),
+                'web_content_14' => json_encode([
+                    'Show you what a real PCB failure looks like',
+                    'Build the instinct that comes from experience',
+                    'Explain why a layout burns real hardware',
+                    'Make a recruiter stop and lean forward'
+                ]),
+                'web_content_15' => 'Course fees and enrolment details available on request.'
+            ];
+            $this->db->table('web_content')->insert($defaultData);
+            $page['data'] = $this->db->table('web_content')->where('web_content_id', 19)->get()->getRowArray();
+        }
+
+        $page['title'] = "Students & Graduates";
+        $page['breadcrumb'] = '<div class="own-breadcrumb">PERI <i style="font-size:14px" class="fas fa-chevron-right"></i> <span>Students & Graduates</span></div>';
+        $page['routeName'] = "peri-training-manage";
+        return view('admin/pages/peri_training', $page);
+    }
+
+    public function pagePERIAnchors()
+    {
+        if (!session()->get('user_login_id')) {
+            return redirect()->to(base_url(ADMIN_NAME));
+        }
+
+        $page['title'] = "PERI Anchor Cards";
+        $page['breadcrumb'] = '<div class="own-breadcrumb">PERI <i style="font-size:14px" class="fas fa-chevron-right"></i> <span>Anchor Cards</span></div>';
+        return view('admin/pages/peri_anchors', $page);
+    }
+
+    public function getPERIAnchors()
+    {
+        if (!session()->get('user_login_id')) {
+            return $this->respond([], 'Session Expired', 404);
+        }
+        $data = $this->request->getPost();
+        $builder = $this->db->table('web_peri_anchors');
+
+        // Seed defaults if empty
+        $total_active = $builder->where('is_deleted', 0)->countAllResults(false);
+        if ($total_active == 0) {
+            $defaults = [
+                ['title' => 'For Students & Graduates', 'description' => 'Build real engineering skills that make recruiters stop mid-interview.', 'anchor_link' => '#training', 'anchor_text' => 'Explore PERI Training ↓', 'display_order' => 1],
+                ['title' => 'For Institutions & Universities', 'description' => 'Partner with PERI to develop your students and strengthen placement outcomes.', 'anchor_link' => '#institutions', 'anchor_text' => 'Explore Collaboration ↓', 'display_order' => 2],
+                ['title' => 'For Industry & Research', 'description' => 'Collaborate on research, publications, and framework validation.', 'anchor_link' => '#research', 'anchor_text' => 'Explore Research ↓', 'display_order' => 3]
+            ];
+            foreach ($defaults as $d) { $builder->insert($d); }
+            $total_active = count($defaults);
+        }
+
+        if (!empty($data['web_peri_anchor_id'])) {
+            $res = $builder->where('web_peri_anchor_id', $data['web_peri_anchor_id'])->get()->getRowArray();
+            return $this->respond(data: $res, message: 'successfully');
+        }
+
+        $res = $builder->where('is_deleted', 0)->orderBy('display_order', 'ASC')->get()->getResultArray();
+        foreach ($res as $i => &$row) {
+            $row['serial_no'] = $i + 1;
+        }
+        return $this->respond(data: $res, message: 'successfully', last_count: $total_active);
+    }
+
+    public function savePERIAnchors()
+    {
+        if (!session()->get('user_login_id')) {
+            return $this->respond([], 'Session Expired', 404);
+        }
+        $data = $this->request->getPost();
+        $builder = $this->db->table('web_peri_anchors');
+
+        switch ($data['for']) {
+            case "delete":
+                $builder->where('web_peri_anchor_id', $data['web_peri_anchor_id']);
+                $builder->update(['is_deleted' => 1]);
+                return $this->respond([], 'successfully');
+
+            case "status":
+                $builder->where('web_peri_anchor_id', $data['web_peri_anchor_id']);
+                $builder->update(['is_active' => $data['is_active']]);
+                return $this->respond([], 'successfully');
+
+            case "edit":
+                $allowedFields = ['title', 'description', 'anchor_link', 'anchor_text', 'display_order', 'is_active'];
+                $updateData = array_intersect_key($data, array_flip($allowedFields));
+
+                if ($data['web_peri_anchor_id'] > 0) {
+                    $builder->where('web_peri_anchor_id', $data['web_peri_anchor_id']);
+                    $builder->update($updateData);
+                } else {
+                    $builder->insert($updateData);
+                }
+                return $this->respond([], 'successfully');
+        }
+        return $this->respond([], "Missing 'for' action", 404);
+    }
+
+    public function pagePERIResearch()
+    {
+        if (!session()->get('user_login_id')) {
+            return redirect()->to(base_url(ADMIN_NAME));
+        }
+
+        $page['data'] = $this->db->table('web_content')->where('web_content_id', 20)->get()->getRowArray();
+
+        // Self-heal/Seed if Row 20 missing
+        if (!$page['data']) {
+            $defaultData = [
+                'web_content_id' => 20,
+                'for'            => 'peri_research',
+                'web_content_1'  => 'For Institutions , Universities <span>and Industry Partners</span>',
+                'web_content_2'  => 'PERI is the structured research and academic collaboration arm of Circuit Brilliance. It provides the environment through which Circuit Brilliance\'s proprietary analytical frameworks are academically validated, where technical whitepapers and research notes are developed and published, and where partnerships with university power electronics departments are established and grown.',
+                'web_image_1'    => 'PERI_p1.webp',
+                'web_content_3'  => json_encode([
+                    ['num' => '01', 'name' => 'Research & Framework Validation', 'text' => 'Academically validates Circuit Brilliance\'s six proprietary frameworks across real power electronics design scenarios.'],
+                    ['num' => '02', 'name' => 'Technical Publications', 'text' => 'Publishes whitepapers and research notes grounded in 18 years of real engineering experience — written for practising engineers.'],
+                    ['num' => '03', 'name' => 'University Collaboration', 'text' => 'Research partnerships with power electronics departments — joint research, knowledge exchange, and co-publication.'],
+                    ['num' => '04', 'name' => 'Engineer Development', 'text' => 'Structured training programmes developing engineers from graduate fundamentals to advanced SiC/GaN, magnetics, and EMI.']
+                ]),
+                'web_content_4'  => 'Interested in collaborating with PERI? We welcome conversations with university research groups, industry partners, and institutions at any stage of interest.',
+                'web_content_5'  => 'Conventional Engineering Education',
+                'web_content_6'  => 'The PERI Approach',
+                'web_content_7'  => json_encode([
+                    "Chapter-by-chapter theory — without design context",
+                    "Concepts delivered before the design demands them",
+                    "Simulation only — no real design workflow",
+                    "No exposure to professional EDA tools",
+                    "Assessment by examination — not by doing",
+                    "Resume skills that are never actually practised"
+                ]),
+                'web_content_8'  => json_encode([
+                    "Built around a real power electronics product development journey",
+                    "Every concept introduced when the design actually needs it",
+                    "Real design workflow — tools, trade-offs, and fabrication outputs",
+                    "Altium Designer, LTSpice, HyperLynx, Ansys Q3D — industry standard",
+                    "Assessment by project delivery and demonstration",
+                    "Every skill listed is a skill practised. Every project is real."
+                ]),
+                'web_content_9'  => '"A PERI student does not walk into a placement interview as a fresher. He walks in as an engineer who has not yet received his first payslip."',
+                'status'         => 1
+            ];
+            $this->db->table('web_content')->insert($defaultData);
+            $page['data'] = $this->db->table('web_content')->where('web_content_id', 20)->get()->getRowArray();
+        }
+
+        $page['title'] = "Institutions & Research";
+        $page['breadcrumb'] = '<div class="own-breadcrumb">PERI <i style="font-size:14px" class="fas fa-chevron-right"></i> <span>Institutions & Research</span></div>';
+        $page['routeName'] = "peri-research-manage";
+        return view('admin/pages/peri_research', $page);
+    }
+    public function pagePERICTAs()
+    {
+        if (!session()->get('user_login_id')) {
+            return redirect()->to(base_url(ADMIN_NAME));
+        }
+
+        $page['title'] = "PERI Action Cards";
+        $page['breadcrumb'] = '<div class="own-breadcrumb">PERI <i style="font-size:14px" class="fas fa-chevron-right"></i> <span>Action Cards</span></div>';
+        return view('admin/pages/peri_ctas', $page);
+    }
+
+    public function getPERICTAs()
+    {
+        if (!session()->get('user_login_id')) {
+            return $this->respond([], 'Session Expired', 404);
+        }
+        $data = $this->request->getPost();
+        $builder = $this->db->table('web_peri_ctas');
+
+        $total_active = $builder->where('is_deleted', 0)->countAllResults(false);
+
+        if (!empty($data['web_peri_cta_id'])) {
+            $res = $builder->where('web_peri_cta_id', $data['web_peri_cta_id'])->get()->getRowArray();
+            return $this->respond(data: $res, message: 'successfully');
+        }
+
+        $res = $builder->where('is_deleted', 0)->orderBy('display_order', 'ASC')->get()->getResultArray();
+        foreach ($res as $i => &$row) {
+            $row['serial_no'] = $i + 1;
+        }
+        return $this->respond(data: $res, message: 'successfully', last_count: $total_active);
+    }
+
+    public function savePERICTAs()
+    {
+        if (!session()->get('user_login_id')) {
+            return $this->respond([], 'Session Expired', 404);
+        }
+        $data = $this->request->getPost();
+        $builder = $this->db->table('web_peri_ctas');
+
+        switch ($data['for']) {
+            case "delete":
+                $builder->where('web_peri_cta_id', $data['web_peri_cta_id']);
+                $builder->update(['is_deleted' => 1]);
+                return $this->respond([], 'successfully');
+
+            case "status":
+                $builder->where('web_peri_cta_id', $data['web_peri_cta_id']);
+                $builder->update(['is_active' => $data['is_active']]);
+                return $this->respond([], 'successfully');
+
+            case "edit":
+                $allowedFields = ['title', 'description', 'icon', 'link', 'link_text', 'theme_color', 'display_order', 'is_active'];
+                $updateData = array_intersect_key($data, array_flip($allowedFields));
+
+                if ($data['web_peri_cta_id'] > 0) {
+                    $builder->where('web_peri_cta_id', $data['web_peri_cta_id']);
+                    $builder->update($updateData);
+                } else {
+                    $builder->insert($updateData);
+                }
+                return $this->respond([], 'successfully');
+        }
+        return $this->respond([], "Missing 'for' action", 404);
+    }
+
+    public function pageDomainServices()
+    {
+        if (!session()->get('user_login_id')) {
+            return redirect()->to(base_url(ADMIN_NAME));
+        }
+
+        $page['title'] = "Domain Services Management";
+        $page['breadcrumb'] = '<div class="own-breadcrumb">Services <i style="font-size:14px" class="fas fa-chevron-right"></i> <span>Domain Services</span></div>';
+        
+        // Hero Section Content
+        $page['hero'] = $this->db->table('web_content')->where('for', 'domain_service_hero')->get()->getRowArray();
+        
+        return view('admin/pages/domain_services', $page);
+    }
+
+    public function getDomainServices()
+    {
+        if (!session()->get('user_login_id')) {
+            return $this->respond([], 'Session Expired', 404);
+        }
+        $data = $this->request->getPost();
+        $builder = $this->db->table('web_service_details');
+
+        if (!empty($data['web_service_details_id'])) {
+            $res = $builder->where('web_service_details_id', $data['web_service_details_id'])->get()->getRowArray();
+            if ($res) {
+                $res['what_we_design'] = json_decode($res['what_we_design'], true) ?: [];
+                $res['deliverables'] = json_decode($res['deliverables'], true) ?: [];
+                $res['technologies'] = json_decode($res['technologies'], true) ?: [];
+            }
+            return $this->respond(data: $res, message: 'successfully');
+        }
+
+        $res = $builder->where('is_deleted', 0)->orderBy('display_order', 'ASC')->get()->getResultArray();
+        foreach ($res as $i => &$row) {
+            $row['serial_no'] = $i + 1;
+        }
+        return $this->respond(data: $res, message: 'successfully');
+    }
+
+    public function saveDomainServices()
+    {
+        if (!session()->get('user_login_id')) {
+            return $this->respond([], 'Session Expired', 404);
+        }
+        $data = $this->request->getPost();
+        $builder = $this->db->table('web_service_details');
+
+        switch ($data['for']) {
+            case "delete":
+                $builder->where('web_service_details_id', $data['web_service_details_id']);
+                $builder->update(['is_deleted' => 1]);
+                return $this->respond([], 'successfully');
+
+            case "status":
+                $builder->where('web_service_details_id', $data['web_service_details_id']);
+                $builder->update(['is_active' => $data['is_active']]);
+                return $this->respond([], 'successfully');
+
+            case "edit":
+                // Handle JSON fields from arrays
+                $data['what_we_design'] = json_encode(array_filter($this->request->getPost('what_we_design') ?: []));
+                $data['deliverables'] = json_encode(array_filter($this->request->getPost('deliverables') ?: []));
+                $data['technologies'] = json_encode(array_filter($this->request->getPost('technologies') ?: []));
+
+                $allowedFields = ['section_anchor', 'title_eb', 'heading', 'description', 'image', 'theme_color', 'what_we_design', 'deliverables', 'technologies', 'display_order', 'is_active'];
+                $updateData = array_intersect_key($data, array_flip($allowedFields));
+
+                // Image Upload
+                $file = $this->request->getFile('image');
+                if ($file && $file->isValid() && !$file->hasMoved()) {
+                    $uploadPath = ROOTPATH . 'assets/img/'; // Using assets/img as per existing structure
+                    $newName = "svc_" . rand(99, 9999) . time() . '.' . $file->getExtension();
+                    if ($file->move($uploadPath, $newName)) {
+                        $updateData['image'] = $newName;
+                    }
+                }
+
+                if ($data['web_service_details_id'] > 0) {
+                    $updateData['updated_on'] = date('Y-m-d H:i:s');
+                    $builder->where('web_service_details_id', $data['web_service_details_id']);
+                    $builder->update($updateData);
+                } else {
+                    $updateData['created_on'] = date('Y-m-d H:i:s');
+                    $builder->insert($updateData);
+                }
+                return $this->respond([], 'successfully');
+        }
+        return $this->respond([], "Missing 'for' action", 404);
+    }
+
+    public function saveDomainHero()
+    {
+        if (!session()->get('user_login_id')) {
+            return $this->respond([], 'Session Expired', 404);
+        }
+        $data = $this->request->getPost();
+        $builder = $this->db->table('web_content');
+
+        $updateData = [
+            'web_content_1' => $data['title'],
+            'web_content_2' => $data['description'],
+            'status' => $data['status'] ?? 1,
+            'updated_on' => date('Y-m-d H:i:s')
+        ];
+
+        $file = $this->request->getFile('image');
+        if ($file && $file->isValid() && !$file->hasMoved()) {
+            $uploadPath = ROOTPATH . 'assets/img/';
+            $newName = "hero_" . rand(99, 9999) . time() . '.' . $file->getExtension();
+            if ($file->move($uploadPath, $newName)) {
+                $updateData['web_image_1'] = $newName;
+            }
+        }
+
+        $builder->where('for', 'domain_service_hero');
+        if ($builder->update($updateData)) {
+            return $this->respond([], 'successfully');
+        } else {
+            // If update fails (e.g. row doesn't exist), try insert
+            $updateData['for'] = 'domain_service_hero';
+            $builder->insert($updateData);
+            return $this->respond([], 'successfully');
+        }
+    }
+    public function pageFrameworks()
+    {
+        $db = \Config\Database::connect();
+        
+        $contents = $db->table('web_framework_content')->get()->getResultArray();
+        $frameworks_content = [];
+        foreach($contents as $c) {
+            $frameworks_content[$c['framework_slug']][$c['section_key']] = $c['content_value'];
+        }
+
+        $data = [
+            'title' => 'Engineering Frameworks',
+            'hero'  => $db->table('web_content')->where('for', 'framework_hero')->get()->getRowArray(),
+            'frameworks_content' => $frameworks_content,
+            'routeName' => 'frameworks-manage'
+        ];
+        return view('admin/pages/frameworks', $data);
+    }
+
+    public function saveFrameworkContent()
+    {
+        $db = \Config\Database::connect();
+        $postData = $this->request->getPost();
+        
+        $frameworkSlug = $postData['framework_slug'] ?? null;
+        if(!$frameworkSlug) return $this->response->setJSON(['success' => false, 'message' => 'Missing slug']);
+        
+        unset($postData['framework_slug']);
+        
+        foreach($postData as $key => $value) {
+            $existing = $db->table('web_framework_content')
+                           ->where('framework_slug', $frameworkSlug)
+                           ->where('section_key', $key)
+                           ->get()->getRow();
+            if($existing) {
+                $db->table('web_framework_content')
+                   ->where('id', $existing->id)
+                   ->update(['content_value' => $value, 'updated_at' => date('Y-m-d H:i:s')]);
+            } else {
+                $db->table('web_framework_content')
+                   ->insert([
+                       'framework_slug' => $frameworkSlug,
+                       'section_key' => $key,
+                       'content_value' => $value,
+                       'created_at' => date('Y-m-d H:i:s'),
+                       'updated_at' => date('Y-m-d H:i:s')
+                   ]);
+            }
+        }
+        
+        return $this->response->setJSON(['success' => true, 'message' => 'Saved successfully']);
+    }
+
+    public function saveFrameworkHero()
+    {
+        $db = \Config\Database::connect();
+        $title = $this->request->getPost('title');
+        $description = $this->request->getPost('description');
+
+        $data = [
+            'web_content_1' => $title,
+            'web_content_2' => $description,
+            'updated_on' => date('Y-m-d H:i:s')
+        ];
+
+        $check = $db->table('web_content')->where('for', 'framework_hero')->get()->getRowArray();
+        if ($check) {
+            $db->table('web_content')->where('for', 'framework_hero')->update($data);
+        } else {
+            $data['for'] = 'framework_hero';
+            $db->table('web_content')->insert($data);
+        }
+
+        return $this->response->setJSON(['status' => 'success', 'message' => 'Hero section saved']);
+    }
+
+    public function saveFramework()
+    {
+        $db = \Config\Database::connect();
+        $id = $this->request->getPost('web_framework_id');
+        
+        $data = [
+            'anchor_id' => $this->request->getPost('anchor_id'),
+            'title_eb' => $this->request->getPost('title_eb'),
+            'heading' => $this->request->getPost('heading'),
+            'quote' => $this->request->getPost('quote'),
+            'description' => $this->request->getPost('description'),
+            'theme_color' => $this->request->getPost('theme_color'),
+            'chart_label' => $this->request->getPost('chart_label'),
+            'chart_data' => $this->request->getPost('chart_data'),
+            'counters' => $this->request->getPost('counters'),
+            'deliverables' => $this->request->getPost('deliverables'),
+            'extra_content' => $this->request->getPost('extra_content'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ];
+
+        if ($id > 0) {
+            $db->table('web_framework_details')->where('web_framework_id', $id)->update($data);
+            $message = 'Pillar updated successfully';
+        } else {
+            $data['created_at'] = date('Y-m-d H:i:s');
+            $db->table('web_framework_details')->insert($data);
+            $message = 'Pillar added successfully';
+        }
+
+        return $this->response->setJSON(['status' => 'success', 'message' => $message]);
+    }
+
+    public function deleteFramework()
+    {
+        $db = \Config\Database::connect();
+        $id = $this->request->getPost('web_framework_id');
+        $db->table('web_framework_details')->where('web_framework_id', $id)->delete();
+        return $this->response->setJSON(['status' => 'success', 'message' => 'Pillar deleted successfully']);
+    }
+
+    public function seedFrameworks()
+    {
+        $db = \Config\Database::connect();
+        
+        $db->table('web_content')->where('for', 'framework_hero')->delete();
+        $db->table('web_content')->insert([
+            'for' => 'framework_hero',
+            'web_content_1' => 'Six Proprietary Analytical Pillars',
+            'web_content_2' => 'Our design process is built on six independent analytical pillars — ensuring that every engineering decision is validated against international standards, physical phenomena, and failure mode libraries.',
+            'web_image_1' => 'hero_tech_banner_clean_v1_1775825435158.png',
+            'created_at' => date('Y-m-d H:i:s')
+        ]);
+
+        $db->table('web_framework_details')->truncate();
+
+        $frameworks = [
+            [
+                'anchor_id' => 'scc',
+                'title_eb' => 'CB-SCC: Standards Compliance Checklist',
+                'heading' => 'Standards <span>Compliance Checklist</span>',
+                'quote' => '"Find the compliance gap at the design stage — not at the certification stage."',
+                'description' => 'A structured audit framework evaluating PCB design and documentation against applicable international standards covering PCB design, insulation coordination, reliability prediction, and product safety. Clause-level traceability. Cross-standard conflict identification.',
+                'theme_color' => '#008d61',
+                'chart_label' => 'CB-SCC | Compliance Coverage Evaluation',
+                'chart_data' => json_encode([
+                    'labels' => ['PCB Design', 'Insulation', 'Reliability', 'Safety', 'Conflict Check', 'Traceability'],
+                    'datasets' => [
+                        ['label' => 'Ad-Hoc', 'data' => [40, 30, 20, 35, 10, 25]],
+                        ['label' => 'CB-SCC', 'data' => [95, 95, 90, 92, 88, 97]]
+                    ]
+                ]),
+                'counters' => json_encode([
+                    ['target' => 96, 'suffix' => '%', 'label' => 'Compliance Depth', 'class' => 'c-scc'],
+                    ['target' => 100, 'suffix' => '%', 'label' => 'Traceability', 'class' => 'h4 fw-bold']
+                ]),
+                'deliverables' => json_encode([
+                    'Compliance status across applicable international standards',
+                    'Clause-level findings traceable to specific standard and section',
+                    'Cross-standard conflict identification'
+                ]),
+                'display_order' => 1
+            ],
+            [
+                'anchor_id' => 'thermal',
+                'title_eb' => 'CB-Thermal: Thermal Analysis Framework',
+                'heading' => 'Thermal <span>Analysis Framework</span>',
+                'quote' => '"Every degree above junction limit is a reliability debt — CB-Thermal finds it before it compounds."',
+                'description' => 'Complete junction-to-ambient thermal chain analysis. Maps every Rth node per heat-generating component. Identifies hotspot risks, validates thermal via arrays, estimates worst-case junction temperatures.',
+                'theme_color' => '#FF4DB8',
+                'chart_label' => 'CB-Thermal | Junction-to-Ambient Chain °C',
+                'chart_data' => json_encode([
+                    'labels' => ['Ambient', 'Heatsink', 'TIM', 'Case', 'Junction'],
+                    'datasets' => [
+                        ['label' => 'Temp (°C)', 'data' => [45, 68, 79, 98, 142]]
+                    ]
+                ]),
+                'counters' => json_encode([
+                    ['target' => 142, 'suffix' => '°C', 'label' => 'Estimated Tj Max', 'class' => 'c-thermal'],
+                    ['target' => 5, 'suffix' => '', 'label' => 'Thermal Nodes', 'class' => 'h4 fw-bold']
+                ]),
+                'deliverables' => json_encode([
+                    ['title' => 'Rth Chain Mapping', 'desc' => 'Full junction-to-ambient Rth chain per heat-generating component'],
+                    ['title' => 'Risk Assessment', 'desc' => 'Hotspot risk assessment — placement, copper spreading, power density'],
+                    ['title' => 'Simulation Data', 'desc' => 'Worst-case junction temperature estimates at full load and maximum ambient']
+                ]),
+                'display_order' => 2
+            ],
+            [
+                'anchor_id' => 'lbf',
+                'title_eb' => 'CB-LBF: Loss Budget Framework',
+                'heading' => 'Loss <span>Budget Framework</span>',
+                'quote' => '"Fight for the Fractions" — efficiency is won or lost in the decimals.',
+                'description' => 'Full-spectrum loss analysis framework. Every watt of loss has an address — CB-LBF locates each one across conduction, switching, magnetics, gate drive, and PCB parasitics. Scanner Principle: no verdicts, pure visibility.',
+                'theme_color' => '#FF6B35',
+                'chart_label' => 'CB-LBF | Loss Mechanism Breakdown %',
+                'chart_data' => json_encode([
+                    'labels' => ['Conduction', 'Switching', 'Core', 'Winding', 'Gate', 'Dead-Time', 'Parasitic'],
+                    'datasets' => [
+                        ['label' => 'Loss Contribution (%)', 'data' => [28.4, 22.1, 17.6, 13.8, 8.2, 6.1, 3.8]]
+                    ]
+                ]),
+                'deliverables' => json_encode([
+                    'Full-spectrum loss scan — every mechanism identified and quantified',
+                    'Itemised loss register per mechanism and per operating point',
+                    'Scanner Principle report — verdict-free, engineered for the team to act on'
+                ]),
+                'display_order' => 3
+            ],
+            [
+                'anchor_id' => 'gaf',
+                'title_eb' => 'CB-GAF: Gap Analysis Framework',
+                'heading' => 'Gap <span>Analysis Framework</span>',
+                'quote' => '"Circuit Brilliance operates where the standards stop — and the engineering begins."',
+                'description' => 'Maps the boundary between auditable standards and 18 years of engineering judgement. Identifies physical phenomena that standards often miss across all four domains.',
+                'theme_color' => '#A855F7',
+                'chart_label' => 'CB-GAF | Gap Type Intensity per Domain',
+                'chart_data' => json_encode([
+                    'labels' => ['EV', 'BMS', 'Renewable', 'Power'],
+                    'datasets' => [
+                        ['label' => 'Type 1', 'data' => [12, 8, 10, 14]],
+                        ['label' => 'Type 2', 'data' => [14, 12, 9, 8]],
+                        ['label' => 'Type 3', 'data' => [8, 10, 12, 6]]
+                    ]
+                ]),
+                'extra_content' => json_encode([
+                    'type' => 'gap_types',
+                    'data' => [
+                        ['type' => 'GAP TYPE 1 — Invisible Phenomena', 'desc' => 'Physical phenomena that cause real failures and are acknowledged by no standard.'],
+                        ['type' => 'GAP TYPE 2 — Judgement Gaps', 'desc' => 'Standard thresholds that cannot determine safety for a specific design\'s operating conditions.'],
+                        ['type' => 'GAP TYPE 3 — Interaction Gaps', 'desc' => 'Failure modes from combinations of individually compliant elements.']
+                    ]
+                ]),
+                'display_order' => 4
+            ],
+            [
+                'anchor_id' => 'fmea',
+                'title_eb' => 'CB-FMEA: Failure Mode & Effects Analysis',
+                'heading' => 'Failure Mode & <span>Effects Analysis</span>',
+                'quote' => '"Generic FMEA finds generic failures. CB-FMEA finds the ones that take down your board."',
+                'description' => 'Two-tier, power-electronics-specific FMEA framework. Tier 1 maps failure propagation paths across the full system. Tier 2 scores failure mode severity at component level.',
+                'theme_color' => '#0077B6',
+                'chart_label' => 'CB-FMEA | Risk Distribution RPN',
+                'chart_data' => json_encode([
+                    'labels' => ['Critical', 'High', 'Medium', 'Mitigated'],
+                    'datasets' => [
+                        ['label' => 'Risk', 'data' => [8, 14, 21, 11]]
+                    ]
+                ]),
+                'deliverables' => json_encode([
+                    'System-level failure propagation map (Tier 1)',
+                    'Component-level risk register (Tier 2) — SOD scores and RPN rankings',
+                    'Structured report for design reviews and audits'
+                ]),
+                'extra_content' => json_encode([
+                    'type' => 'tiers',
+                    'data' => [
+                        ['tier' => 'TIER 1 — System-Level Failure Mapping', 'scope' => 'Maps failure propagation paths across topology, gate driver chain, isolation barriers, and protection logic.'],
+                        ['tier' => 'TIER 2 — Component-Level Analysis', 'scope' => 'SOD scores and RPN rankings calibrated to switching frequency, voltage class, and thermal profile.']
+                    ]
+                ]),
+                'display_order' => 5
+            ],
+            [
+                'anchor_id' => 'craft',
+                'title_eb' => 'CB-CRAFT: Design Execution Framework',
+                'heading' => 'Comprehensive Review and <span>Assured Fabrication Technology</span>',
+                'quote' => '"CB-CRAFT reflects the design as implemented. It does not pass or fail. It observes, records, and verifies."',
+                'description' => 'CB-CRAFT is Circuit Brilliance\'s PCB Design Execution Framework — the stage where every upstream framework output (SCC, LBF, Thermal, GAF, FMEA) converges into a verified, manufacturable PCB deliverable.',
+                'theme_color' => '#1B5E82',
+                'deliverables' => json_encode([
+                    ['title' => 'CB-CRAFT Review Record', 'desc' => 'every checkpoint reviewed across all nine stages, observations recorded'],
+                    ['title' => 'Framework Summary Report', 'desc' => 'one-page confirmation the design underwent CB-CRAFT review'],
+                    ['title' => 'Design Rationale Note', 'desc' => 'switching loop area, isolation strategy, copper weight rationale'],
+                    ['title' => 'Gerber Package', 'desc' => 'fabrication-ready files verified under CB-CRAFT before release']
+                ]),
+                'extra_content' => json_encode([
+                    'type' => 'craft_complex',
+                    'stages' => [
+                        ['id' => '01', 'title' => 'Layout Intelligence Extraction', 'desc' => 'Reading the schematic for layout-critical information.'],
+                        ['id' => '02', 'title' => 'Layout-Specific Client Inputs', 'desc' => 'Mechanical constraints, surface finish, layer budget.'],
+                        ['id' => '03', 'title' => 'Layer Stack & Design Rules', 'desc' => 'Isolation, copper weight, and design rule implementation.'],
+                        ['id' => '04', 'title' => 'Component Placement', 'desc' => 'Switching loops, gate drive proximity, thermal zone compliance.'],
+                        ['id' => '05', 'title' => 'Routing', 'desc' => 'Power trace sizing, Kelvin sense routing, ground zone discipline.'],
+                        ['id' => '06', 'title' => 'DFM + DFA', 'desc' => 'Design for Manufacturability and Assembly verification.'],
+                        ['id' => '07', 'title' => 'DFT — Design for Testability', 'desc' => 'Test points, programming access, serviceability.'],
+                        ['id' => '08', 'title' => 'DFS — Design for Safety', 'desc' => 'Creepage, clearance, isolation, safety marking.'],
+                        ['id' => '09', 'title' => 'Release for Prototyping', 'desc' => 'Final package generation, ODB++, and manufacturing release.']
+                    ],
+                    'ecosystem_note' => 'CB-CRAFT does not determine requirements — it verifies their implementation. CB-SCC determines compliance requirements — CB-CRAFT checks the PCB delivers them. CB-LBF determines current values — CB-CRAFT sizes the copper to carry them. CB-Thermal determines thermal zones — CB-CRAFT verifies placement honours them.',
+                    'domain_focus' => [
+                        ['domain' => 'EV Powertrain', 'focus' => 'HV isolation, SiC/GaN switching loops, HVIL, automotive DFx'],
+                        ['domain' => 'Battery Management', 'focus' => 'AFE sense matching, stack voltage isolation, Kelvin routing'],
+                        ['domain' => 'Renewable Energy', 'focus' => 'Common-mode loops, GFDI, outdoor creepage, LCL filter'],
+                        ['domain' => 'Power Converters & SMPS', 'focus' => 'Primary switching loop, Y-cap placement, isolation slot']
+                    ]
+                ]),
+                'display_order' => 6
+            ]
+        ];
+
+        foreach ($frameworks as $f) {
+            $f['created_at'] = date('Y-m-d H:i:s');
+            $db->table('web_framework_details')->insert($f);
+        }
+
+        return $this->response->setJSON(['status' => 'success', 'message' => 'Seeding successful']);
+    }
 }
-
-

@@ -122,23 +122,23 @@
                 <?php $current_page = basename($_SERVER['PHP_SELF']); ?>
                 <nav class="hdr-nav" role="navigation" aria-label="Main navigation">
                     <ul class="nav-ul">
-                        <li class="<?php echo ($current_page == 'index.php') ? 'active' : ''; ?>"><a href="index.php">Home</a></li>
-                        <li class="has-dropdown <?php echo (in_array($current_page, ['domain-service.php', 'frameworks.php'])) ? 'active' : ''; ?>">
+                        <li class="<?php echo ($current_page == 'index') ? 'active' : ''; ?>"><a href="index">Home</a></li>
+                        <li class="has-dropdown <?php echo (in_array($current_page, ['domain-service', 'frameworks'])) ? 'active' : ''; ?>">
                             <a href="#">Services <i class="fas fa-chevron-down" style="font-size:10px; margin-left:3px;"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="<?php echo ($current_page == 'domain-service.php') ? 'active' : ''; ?>"><a href="domain-service.php">Domain Services</a></li>
-                                <li class="<?php echo ($current_page == 'frameworks.php') ? 'active' : ''; ?>"><a href="frameworks.php">Proprietary Frameworks</a></li>
+                                <li class="<?php echo ($current_page == 'domain-service') ? 'active' : ''; ?>"><a href="domain-service">Domain Services</a></li>
+                                <li class="<?php echo ($current_page == 'frameworks') ? 'active' : ''; ?>"><a href="frameworks">Proprietary Frameworks</a></li>
                             </ul>
                         </li>
-                        <li class="<?php echo ($current_page == 'PERI.php') ? 'active' : ''; ?>"><a href="PERI.php">PERI</a></li>
-                        <li class="<?php echo ($current_page == 'portfolio.php') ? 'active' : ''; ?>"><a href="portfolio.php">Portfolio</a></li>
-                        <li class="<?php echo ($current_page == 'blog.php') ? 'active' : ''; ?>"><a href="blog.php">Blog</a></li>
-                        <li class="<?php echo ($current_page == 'about.php') ? 'active' : ''; ?>"><a href="about.php">About</a></li>
+                        <li class="<?php echo ($current_page == 'PERI') ? 'active' : ''; ?>"><a href="PERI">PERI</a></li>
+                        <li class="<?php echo ($current_page == 'portfolio') ? 'active' : ''; ?>"><a href="portfolio">Portfolio</a></li>
+                        <li class="<?php echo ($current_page == 'blog') ? 'active' : ''; ?>"><a href="blog">Blog</a></li>
+                        <li class="<?php echo ($current_page == 'about') ? 'active' : ''; ?>"><a href="about">About</a></li>
                     </ul>
                 </nav>
                 <!-- Actions -->
                 <div class="hdr-actions">
-                    <a href="contact.php" class="btn-cta-hdr">Contact Us</a>
+                    <a href="contact" class="btn-cta-hdr">Contact Us</a>
                     <a href="https://www.linkedin.com/company/circuit-brilliance" target="_blank" rel="noopener noreferrer" class="hdr-icon" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
@@ -163,17 +163,17 @@
                 <span class="mnav-x" id="mnav-x" role="button" tabindex="0" aria-label="Close menu">&times;</span>
             </div>
             <div class="mnav-links">
-                <a href="index.php" class="<?php echo ($current_page == 'index.php') ? 'active' : ''; ?>">Home</a>
+                <a href="index" class="<?php echo ($current_page == 'index') ? 'active' : ''; ?>">Home</a>
                 <a href="#" style="font-weight: 700; color: var(--navy);">Services</a>
-                <a href="domain-service.php" class="<?php echo ($current_page == 'domain-service.php') ? 'active' : ''; ?>" style="padding-left: 40px; font-size: 14px; border-bottom: none; padding-top: 5px; padding-bottom: 5px; color: var(--text-mid); text-decoration: none;">- Domain Services</a>
-                <a href="frameworks.php" class="<?php echo ($current_page == 'frameworks.php') ? 'active' : ''; ?>" style="padding-left: 40px; font-size: 14px; padding-top: 5px; padding-bottom: 12px; color: var(--text-mid); text-decoration: none;">- Proprietary Frameworks</a>
-                <a href="PERI.php" class="<?php echo ($current_page == 'PERI.php') ? 'active' : ''; ?>" style="font-weight: 700;">PERI</a>
-                <a href="portfolio.php" class="<?php echo ($current_page == 'portfolio.php') ? 'active' : ''; ?>">Portfolio</a>
-                <a href="blog.php" class="<?php echo ($current_page == 'blog.php') ? 'active' : ''; ?>">Blog</a>
-                <a href="about.php" class="<?php echo ($current_page == 'about.php') ? 'active' : ''; ?>">About</a>
+                <a href="domain-service" class="<?php echo ($current_page == 'domain-service') ? 'active' : ''; ?>" style="padding-left: 40px; font-size: 14px; border-bottom: none; padding-top: 5px; padding-bottom: 5px; color: var(--text-mid); text-decoration: none;">- Domain Services</a>
+                <a href="frameworks" class="<?php echo ($current_page == 'frameworks') ? 'active' : ''; ?>" style="padding-left: 40px; font-size: 14px; padding-top: 5px; padding-bottom: 12px; color: var(--text-mid); text-decoration: none;">- Proprietary Frameworks</a>
+                <a href="PERI" class="<?php echo ($current_page == 'PERI') ? 'active' : ''; ?>" style="font-weight: 700;">PERI</a>
+                <a href="portfolio" class="<?php echo ($current_page == 'portfolio') ? 'active' : ''; ?>">Portfolio</a>
+                <a href="blog" class="<?php echo ($current_page == 'blog') ? 'active' : ''; ?>">Blog</a>
+                <a href="about" class="<?php echo ($current_page == 'about') ? 'active' : ''; ?>">About</a>
             </div>
             <div class="mnav-foot">
-                <a href="contact.php" class="mnav-btn">Contact Us</a>
+                <a href="contact" class="mnav-btn">Contact Us</a>
                 <div class="mnav-socials">
                     <a href="https://www.linkedin.com/company/circuit-brilliance" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
                             class="fab fa-linkedin-in"></i></a>

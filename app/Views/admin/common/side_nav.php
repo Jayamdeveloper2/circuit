@@ -96,6 +96,12 @@
                             <span>Home Contact</span>
                         </a>
                     </li>
+                    <li class="  <?= ($routeName == "homemission-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/homemission-manage') ?>">
+                            <i class="fas fa-bullseye" style="font-size: 18px"></i>
+                            <span>Mission Hub</span>
+                        </a>
+                    </li>
                     <li class="  <?= ($routeName == "measured-manage") ? "active" : "" ?>">
                         <a href="<?= base_url(ADMIN_NAME . '/measured-manage') ?>">
                             <i class="fas fa-balance-scale" style="font-size: 18px"></i>
@@ -157,17 +163,60 @@
                         </ul>
                     </li>
 
+                    <li class="header fs-10 m-0 text-uppercase">PERI</li>
 
-
-                    <li class="header fs-10 m-0 text-uppercase">Services</li>
-
+                    <li class="  <?= ($routeName == "peri-content-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/peri-content-manage') ?>">
+                            <i class="fas fa-file-alt" style="font-size: 18px"></i>
+                            <span>Introduction</span>
+                        </a>
+                    </li>
+                    
+                    <li class="  <?= ($routeName == "peri-anchors-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/peri-anchors-manage') ?>">
+                            <i class="fas fa-th-large" style="font-size: 18px"></i>
+                            <span>Anchor Cards</span>
+                        </a>
+                    </li>
+                    <li class="  <?= ($routeName == "peri-training-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/peri-training-manage') ?>">
+                            <i class="fas fa-user-graduate" style="font-size: 18px"></i>
+                            <span>Students & Graduates</span>
+                        </a>
+                    </li>
+                    
+                    <li class="  <?= ($routeName == "peri-research-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/peri-research-manage') ?>">                             
+                            <i class="fas fa-university" style="font-size: 18px"></i>
+                            <span>Institutions & Research</span>
+                        </a>
+                    </li>
+                    <li class="  <?= ($routeName == "peri-ctas-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/peri-ctas-manage') ?>">                             
+                            <i class="fas fa-mouse-pointer" style="font-size: 18px"></i>
+                            <span>Action Cards</span>
+                        </a>
+                    </li>
+<li class="header fs-10 m-0 text-uppercase">Services</li>
                     <li class="  <?= ($routeName == "services-manage") ? "active" : "" ?>">
                         <a href="<?= base_url(ADMIN_NAME . '/services-manage') ?>">
                             <i class="fas fa-layer-group" style="font-size: 18px"></i>
                             <span>Services</span>
                         </a>
                     </li>
+                    <li class="  <?= ($routeName == "domain-services-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/domain-services-manage') ?>">
+                            <i class="fas fa-microchip" style="font-size: 18px"></i>
+                            <span>Domain Services</span>
+                        </a>
+                    </li>
 
+                    <li class="  <?= ($routeName == "frameworks-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/frameworks-manage') ?>">
+                            <i class="fas fa-microchip" style="font-size: 18px"></i>
+                            <span>Frameworks</span>
+                        </a>
+                    </li>
 
 
                     <!-- <li class="header fs-10 m-0 text-uppercase">Products</li>
@@ -329,6 +378,23 @@
                             <span>Podcast List</span>
                         </a>
                     </li>
+
+                    <li class="header fs-10 m-0 text-uppercase">PERI (Academic Wing)</li>
+                    
+                    <li class="  <?= ($routeName == "peri-anchors-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/peri-anchors-manage') ?>">                             
+                            <i class="fas fa-link" style="font-size: 18px"></i>
+                            <span>Anchor Cards</span>
+                        </a>
+                    </li>
+                    
+                    <li class="  <?= ($routeName == "peri-training-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/peri-training-manage') ?>">                             
+                            <i class="fas fa-user-graduate" style="font-size: 18px"></i>
+                            <span>Students & Graduates</span>
+                        </a>
+                    </li>
+
 
                     <li class="header fs-10 m-0 text-uppercase">Blog</li>
                     

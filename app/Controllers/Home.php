@@ -145,6 +145,11 @@ class Home extends BaseController
             ->orderBy('display_order', 'ASC')
             ->get()->getResultArray();
 
+        $this->data['mission_hub_data'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 22)
+            ->get()->getRowArray();
+
         // Your file is in frontend subfolder, so use:
         return view('frontent/index', $this->data);
     }
@@ -321,7 +326,12 @@ class Home extends BaseController
             ->get()->getRowArray();
 
         if (!$this->data['meta']) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+            $this->data['meta'] = [
+                'menu_image' => '',
+                'meta_title' => 'Contact Us | Circuit Brilliance',
+                'meta_desc' => 'Get in touch with our engineering team.',
+                'meta_key' => ''
+            ];
         }
 
         $this->data['setting'] = $this->db->table('web_setting')
@@ -416,7 +426,97 @@ class Home extends BaseController
             'meta_key' => 'Power Electronics, Research, Training'
         ];
 
+        // PERI Intro
+        $this->data['peri_intro'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 18)
+            ->get()->getRowArray();
+
+        // PERI Anchors
+        $this->data['peri_anchors'] = $this->db->table('web_peri_anchors')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order', 'ASC')
+            ->get()->getResultArray();
+
+        // PERI Training
+        $this->data['peri_training'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 19)
+            ->get()->getRowArray();
+        
+        // PERI Research & Institutions
+        $this->data['peri_research'] = $this->db->table('web_content')
+            ->select('*')
+            ->where('web_content_id', 20)
+            ->get()->getRowArray();
+
+        // PERI CTAs
+        $this->data['peri_ctas'] = $this->db->table('web_peri_ctas')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order', 'ASC')
+            ->get()->getResultArray();
+
         return view('frontent/PERI', $this->data);
+    }
+
+    public function pagedomainservice()
+    {
+        // Fetch Hero Content
+        $this->data['hero'] = $this->db->table('web_content')
+            ->where('for', 'domain_service_hero')
+            ->where('status', 1)
+            ->get()->getRowArray();
+
+        if (!$this->data['hero']) {
+            $this->data['hero'] = [
+                'web_content_1' => 'Specialist Expertise Across Four High-Growth Domains',
+                'web_content_2' => 'Circuit Brilliance delivers complete, end-to-end power electronics design — from schematic capture through simulation, PCB layout, and full documentation. Specialist depth that generalist design houses cannot match.',
+                'web_image_1' => 'hero_tech_banner_clean_v1_1775825435158.png'
+            ];
+        }
+
+        // Fetch Service Details
+        $this->data['service_details'] = $this->db->table('web_service_details')
+            ->where('is_deleted', 0)
+            ->where('is_active', 1)
+            ->orderBy('display_order', 'ASC')
+            ->get()->getResultArray();
+
+        foreach ($this->data['service_details'] as &$sd) {
+            $sd['what_we_design'] = json_decode($sd['what_we_design'], true) ?: [];
+            $sd['deliverables'] = json_decode($sd['deliverables'], true) ?: [];
+            $sd['technologies'] = json_decode($sd['technologies'], true) ?: [];
+        }
+
+        $this->data['meta'] = [
+            'meta_title' => 'Domain Services | Circuit Brilliance',
+            'meta_desc' => 'Specialist power electronics design services.',
+            'meta_key' => ''
+        ];
+        return view('frontent/domain-service', $this->data);
+    }
+
+    public function pageframeworks()
+    {
+        $this->data['meta'] = [
+            'meta_title' => 'Proprietary Frameworks | Circuit Brilliance',
+            'meta_desc' => 'Advanced engineering frameworks for power electronics.',
+            'meta_key' => ''
+        ];
+        
+        $db = \Config\Database::connect();
+        $this->data['hero'] = $db->table('web_content')->where('for', 'framework_hero')->get()->getRowArray();
+        
+        $contents = $db->table('web_framework_content')->get()->getResultArray();
+        $frameworks_content = [];
+        foreach($contents as $c) {
+            $frameworks_content[$c['framework_slug']][$c['section_key']] = $c['content_value'];
+        }
+        $this->data['frameworks_content'] = $frameworks_content;
+
+        return view('frontent/frameworks', $this->data);
     }
 }
 

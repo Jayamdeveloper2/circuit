@@ -18,3 +18,301 @@ ERROR - 2026-04-25 11:14:14 --> Array
     [for] => edit
 )
 
+ERROR - 2026-04-25 12:46:20 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => Power Electronics Research Institute
+    [web_content_2] => PERI exists at the intersection of rigorous engineering practice and structured knowledge development. Where Circuit Brilliance applies domain expertise to client design engagements, PERI directs that same expertise in two directions — toward developing engineers who are genuinely ready for industry, and toward advancing power electronics knowledge through research, publication, and academic collaboration.
+    [web_content_3] => Being Established
+    [web_content_id] => 18
+    [for] => edit
+)
+
+ERROR - 2026-04-25 12:48:30 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_1] => 
+    [web_content_2] => PERI exists at the intersection of rigorous engineering practice and structured knowledge development. Where Circuit Brilliance applies domain expertise to client design engagements, PERI directs that same expertise in two directions — toward developing engineers who are genuinely ready for industry, and toward advancing power electronics knowledge through research, publication, and academic collaboration.
+    [web_content_3] => Being Established
+    [web_content_id] => 18
+    [for] => edit
+)
+
+ERROR - 2026-04-25 12:49:51 --> Array
+(
+    [missionStatus] => 1
+    [missionStatusHidden] => 1
+    [web_content_2] => PERI exists at the intersection of rigorous engineering practice and structured knowledge development. Where Circuit Brilliance applies domain expertise to client design engagements, PERI directs that same expertise in two directions — toward developing engineers who are genuinely ready for industry, and toward advancing power electronics knowledge through research, publication, and academic collaboration.
+    [web_content_3] => Being Established
+    [web_content_id] => 18
+    [for] => edit
+)
+
+CRITICAL - 2026-04-25 12:57:48 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: circuit-manage/peri-content-manage]
+in APPPATH\Controllers\Admin\MainPage.php on line 3049.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\circuit\\app\\Controllers\\Admin\\MainPage.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\MainPage')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\MainPage')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Admin\\MainPage', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 12:57:55 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: circuit-manage/peri-content-manage]
+in APPPATH\Controllers\Admin\MainPage.php on line 3049.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\circuit\\app\\Controllers\\Admin\\MainPage.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\MainPage')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\MainPage')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Admin\\MainPage', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 12:57:57 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: circuit-manage/planned-showcase-manage]
+in APPPATH\Controllers\Admin\MainPage.php on line 3049.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\circuit\\app\\Controllers\\Admin\\MainPage.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\MainPage')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\MainPage')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Admin\\MainPage', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 12:57:59 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: circuit-manage/portfolio-manage]
+in APPPATH\Controllers\Admin\MainPage.php on line 3049.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\circuit\\app\\Controllers\\Admin\\MainPage.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\MainPage')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\MainPage')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Admin\\MainPage', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 12:58:01 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: circuit-manage/portfolio-manage]
+in APPPATH\Controllers\Admin\MainPage.php on line 3049.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\circuit\\app\\Controllers\\Admin\\MainPage.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\MainPage')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\MainPage')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Admin\\MainPage', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 12:58:08 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: circuit-manage/showcase-manage]
+in APPPATH\Controllers\Admin\MainPage.php on line 3049.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\circuit\\app\\Controllers\\Admin\\MainPage.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\MainPage')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\MainPage')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Admin\\MainPage', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 14:43:46 --> ParseError: syntax error, unexpected end of file
+[Method: GET, Route: PERI.php]
+in APPPATH\Views\frontent\PERI.php on line 431.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('frontent/PERI', [], true)
+ 3 APPPATH\Controllers\Home.php(438): view('frontent/PERI', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->peri()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 14:43:58 --> mysqli_sql_exception: Unknown column 'page_name' in 'field list' in D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\circuit\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `we...', 0)
+#1 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `we...')
+#2 D:\xampp\htdocs\circuit\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `we...')
+#3 D:\xampp\htdocs\circuit\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `we...', Array, false)
+#4 D:\xampp\htdocs\circuit\app\Controllers\Admin\MainPage.php(3091): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\xampp\htdocs\circuit\system\CodeIgniter.php(933): App\Controllers\Admin\MainPage->pagePERITraining()
+#6 D:\xampp\htdocs\circuit\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+#7 D:\xampp\htdocs\circuit\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\xampp\htdocs\circuit\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 D:\xampp\htdocs\circuit\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\xampp\htdocs\circuit\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 14:43:58 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: circuit-manage/peri-training-manage]
+in APPPATH\Views\admin\pages\peri_training.php on line 29.
+ 1 APPPATH\Views\admin\pages\peri_training.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\circuit\\app\\Views\\admin\\pages\\peri_training.php', 29)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\circuit\\app\\Views\\admin\\pages\\peri_training.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/pages/peri_training', [], true)
+ 5 APPPATH\Controllers\Admin\MainPage.php(3098): view('admin/pages/peri_training', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\MainPage->pagePERITraining()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 14:53:03 --> ParseError: syntax error, unexpected end of file
+[Method: GET, Route: PERI.php]
+in APPPATH\Views\frontent\PERI.php on line 431.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('frontent/PERI', [], true)
+ 3 APPPATH\Controllers\Home.php(438): view('frontent/PERI', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->peri()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 14:53:04 --> ParseError: syntax error, unexpected end of file
+[Method: GET, Route: PERI.php]
+in APPPATH\Views\frontent\PERI.php on line 431.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('frontent/PERI', [], true)
+ 3 APPPATH\Controllers\Home.php(438): view('frontent/PERI', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->peri()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 14:53:04 --> ParseError: syntax error, unexpected end of file
+[Method: GET, Route: PERI.php]
+in APPPATH\Views\frontent\PERI.php on line 431.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('frontent/PERI', [], true)
+ 3 APPPATH\Controllers\Home.php(438): view('frontent/PERI', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->peri()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 14:53:10 --> ParseError: syntax error, unexpected end of file
+[Method: GET, Route: PERI.php]
+in APPPATH\Views\frontent\PERI.php on line 431.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('frontent/PERI', [], true)
+ 3 APPPATH\Controllers\Home.php(438): view('frontent/PERI', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->peri()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 16:15:57 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 16:19:37 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 16:20:07 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 16:21:03 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 16:21:48 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 16:22:26 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 16:23:30 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 16:24:16 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 16:24:40 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 16:29:06 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 16:34:57 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 16:37:41 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 16:38:31 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 16:39:55 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 16:41:04 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 17:32:07 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 17:36:42 --> saveContent called, for=save_training web_content_id=19
+CRITICAL - 2026-04-25 17:39:34 --> ParseError: syntax error, unexpected token "=>"
+[Method: POST, Route: circuit-manage/api/saveContent]
+in APPPATH\Controllers\Admin\MainPage.php on line 3033.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\circuit\\app\\Controllers\\Admin\\MainPage.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\MainPage')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\MainPage')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Admin\\MainPage', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 17:40:07 --> ParseError: syntax error, unexpected token "=>"
+[Method: GET, Route: circuit-manage/peri-training-manage]
+in APPPATH\Controllers\Admin\MainPage.php on line 3033.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\circuit\\app\\Controllers\\Admin\\MainPage.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\MainPage')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\MainPage')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Admin\\MainPage', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 17:40:10 --> ParseError: syntax error, unexpected token "=>"
+[Method: GET, Route: circuit-manage/peri-training-manage]
+in APPPATH\Controllers\Admin\MainPage.php on line 3033.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\circuit\\app\\Controllers\\Admin\\MainPage.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\MainPage')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\MainPage')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Admin\\MainPage', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 17:42:07 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 17:52:31 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 17:53:00 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 17:53:28 --> saveContent called, for=save_training web_content_id=19
+ERROR - 2026-04-25 17:59:12 --> saveContent called, for=save_training web_content_id=19
+CRITICAL - 2026-04-25 18:14:57 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/layout/main.php"
+[Method: GET, Route: circuit-manage/peri-research-manage]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/layout/main.php')
+ 2 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('admin/layout/main', [], true)
+ 3 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/pages/peri_research', [], true)
+ 4 APPPATH\Controllers\Admin\MainPage.php(3202): view('admin/pages/peri_research', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\MainPage->pagePERIResearch()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:16:51 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/layout/main.php"
+[Method: GET, Route: circuit-manage/peri-research-manage]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/layout/main.php')
+ 2 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('admin/layout/main', [], true)
+ 3 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/pages/peri_research', [], true)
+ 4 APPPATH\Controllers\Admin\MainPage.php(3202): view('admin/pages/peri_research', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\MainPage->pagePERIResearch()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:16:51 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/layout/main.php"
+[Method: GET, Route: circuit-manage/peri-research-manage]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/layout/main.php')
+ 2 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('admin/layout/main', [], true)
+ 3 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/pages/peri_research', [], true)
+ 4 APPPATH\Controllers\Admin\MainPage.php(3202): view('admin/pages/peri_research', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\MainPage->pagePERIResearch()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\MainPage))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 18:19:40 --> saveContent called, for=save_research web_content_id=20
+ERROR - 2026-04-25 18:19:46 --> saveContent called, for=save_research web_content_id=20
+ERROR - 2026-04-25 18:19:51 --> saveContent called, for=save_research web_content_id=20
+ERROR - 2026-04-25 18:19:55 --> saveContent called, for=save_research web_content_id=20
+ERROR - 2026-04-25 18:20:14 --> saveContent called, for=save_research web_content_id=20
+ERROR - 2026-04-25 18:20:28 --> saveContent called, for=save_research web_content_id=20
+ERROR - 2026-04-25 18:21:44 --> saveContent called, for=save_research web_content_id=20
+ERROR - 2026-04-25 18:22:08 --> saveContent called, for=save_research web_content_id=20
+ERROR - 2026-04-25 18:22:25 --> saveContent called, for=save_research web_content_id=20
