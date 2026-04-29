@@ -236,47 +236,53 @@
 </section>
 <?php endif; ?>
 
-<!-- ════════════════ LET'S TALK POWER ELECTRONICS (CTA) ════════════════ -->
+<!-- ════════════════ LET'S WORK TOGETHER (CTA) ════════════════ -->
+<?php if (!empty($cta) && $cta['status'] == 1): ?>
 <section class="cta-sec" id="contact-cta">
     <div class="container">
         <div class="cta-inner wow zoomIn">
-            <h2 class="cta-h">Let's Talk <span>Power Electronics</span></h2>
-            <p class="cta-sub">Working on a power electronics design? Have a product you want to develop from scratch?
-                We are always happy to talk — about your project, your requirements, or just power electronics in
-                general. That is what we are here for.</p>
+            <h2 class="cta-h"><?= $cta['title'] ?></h2>
+            <div class="cta-sub"><?= $cta['content'] ?></div>
 
-            <a href="contact.php" class="btn-cta">Start a Conversation →</a>
+            <a href="<?= base_url('contact') ?>" class="btn-cta">Start a Conversation →</a>
 
             <div class="cta-channels">
                 <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/company/circuit-brilliance" target="_blank" class="cta-chan">
+                <?php if (!empty($setting['linkedin_url'])): ?>
+                <a href="<?= esc($setting['linkedin_url']) ?>" target="_blank" class="cta-chan">
                     <div class="cc-icon"><i class="fa-brands fa-linkedin-in"></i></div>
                     <div class="cc-text">
                         <span>LinkedIn</span>
                         <strong>Connect with us on LinkedIn</strong>
                     </div>
                 </a>
+                <?php endif; ?>
 
                 <!-- Email -->
-                <a href="mailto:contact@circuitbrilliance.com" class="cta-chan">
+                <?php if (!empty($setting['user_email'])): ?>
+                <a href="mailto:<?= esc($setting['user_email']) ?>" class="cta-chan">
                     <div class="cc-icon"><i class="fa-solid fa-envelope"></i></div>
                     <div class="cc-text">
                         <span>Email</span>
-                        <strong>contact@circuitbrilliance.com</strong>
+                        <strong><?= esc($setting['user_email']) ?></strong>
                     </div>
                 </a>
+                <?php endif; ?>
 
                 <!-- WhatsApp -->
-                <a href="https://wa.me/918870174864" target="_blank" rel="noopener noreferrer" class="cta-chan">
+                <?php if (!empty($setting['user_phone_1'])): ?>
+                <a href="https://wa.me/<?= preg_replace('/[^0-9]/', '', $setting['user_phone_1']) ?>" target="_blank" rel="noopener noreferrer" class="cta-chan">
                     <div class="cc-icon"><i class="fa-brands fa-whatsapp"></i></div>
                     <div class="cc-text">
                         <span>WhatsApp</span>
                         <strong>Message us on WhatsApp</strong>
                     </div>
                 </a>
+                <?php endif; ?>
             </div>
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <?php include 'common/footer.php'; ?>

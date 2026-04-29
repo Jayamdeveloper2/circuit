@@ -7,9 +7,126 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class Blog extends BaseController
 {
-    public function __construct() {
+    protected $db;
+
+    public function __construct()
+    {
+        $this->db = \Config\Database::connect();
         helper('url');
         helper("util");
+    }
+
+    public function pageBlog()
+    {
+        if (!session()->get('user_login_id')) {
+            return redirect()->to(base_url(ADMIN_NAME));
+        }
+        $page['title'] = "Blog";
+        $page['breadcrumb'] = '<div class="own-breadcrumb">Blog <i style="font-size:14px" class="fas fa-chevron-right"></i> <span>Blog List</span></div>';
+        
+        // Fetch the global status for the blog page from web_content if needed
+        // For now, following the pattern in the view (data-section="26")
+        $page['blogdatamaster'] = $this->db->table('web_content')->where('web_content_id', 26)->get()->getRowArray();
+        
+        return view('admin/pages/blog', $page);
+    }
+
+    public function getBlog()
+    {
+        if (!session()->get('user_login_id')) {
+            return $this->respond([], 'Session Expired', 404);
+        }
+
+        $builder = $this->db->table('web_blog')
+            ->select('web_blog_id, web_title, web_tag, web_desc, web_content, web_time, display_order, meta_title, meta_desc, meta_key, is_active, 
+                concat("' . BLOG_IMG . '", web_image) as web_image')
+
+            ->where('is_deleted', 0);
+
+        if ($this->request->getPost('web_blog_id')) {
+            $builder->where('web_blog_id', $this->request->getPost('web_blog_id'));
+        }
+
+        $data = $builder->orderBy('display_order', 'ASC')->get()->getResultArray();
+
+        foreach ($data as $i => &$row) {
+            $row['serial_no'] = $i + 1;
+        }
+
+        $data_count = $this->db->table('web_blog')->select('count(*) as data_count')->where('is_deleted', 0)->get()->getRowArray();
+
+        return $this->respond($data, 'successfully', 200, 'success', ($data_count['data_count'] ?? 0));
+    }
+
+    public function saveBlog()
+    {
+        if (!session()->get('user_login_id')) {
+            return $this->respond([], 'Session Expired', 404);
+        }
+
+        $data = $this->request->getPost();
+        $action = $data['for'] ?? '';
+        $builder = $this->db->table('web_blog');
+
+        switch ($action) {
+            case 'delete':
+                if (empty($data['web_blog_id'])) {
+                    return $this->respond([], 'ID required', 400);
+                }
+                $builder->where('web_blog_id', $data['web_blog_id'])->update(['is_deleted' => 1]);
+                return $this->respond([], 'successfully');
+
+            case 'status':
+                if (empty($data['web_blog_id']) || !isset($data['is_active'])) {
+                    return $this->respond([], 'Invalid status', 400);
+                }
+                $builder->where('web_blog_id', $data['web_blog_id'])->update(['is_active' => $data['is_active']]);
+                return $this->respond([], 'successfully');
+
+            case 'edit':
+                $id = $data['web_blog_id'];
+                $isNew = ($id == -1);
+
+                $allowedFields = [
+                    'web_title', 'web_tag', 'web_desc', 'web_content', 
+                    'web_time', 'display_order', 'meta_title', 
+                    'meta_desc', 'meta_key'
+                ];
+
+                $saveData = array_intersect_key($data, array_flip($allowedFields));
+                
+                // Generate slug
+                if (!empty($saveData['web_title'])) {
+                    $saveData['web_slug'] = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $saveData['web_title']), '-'));
+                }
+
+                // Handle Featured Image
+                $file = $this->request->getFile('web_image');
+                if ($file && $file->isValid() && !$file->hasMoved()) {
+                    $uploadPath = ROOTPATH . 'images/blog/';
+                    if (!is_dir($uploadPath)) mkdir($uploadPath, 0755, true);
+                    $newName = "blog_" . time() . "_" . rand(1000, 9999) . "." . $file->getExtension();
+                    $file->move($uploadPath, $newName);
+                    $saveData['web_image'] = $newName;
+                }
+
+
+                if ($isNew) {
+                    $saveData['created_by'] = session()->get('user_login_id');
+                    $saveData['created_on'] = date('Y-m-d H:i:s');
+                    $saveData['is_active'] = 1;
+                    $saveData['is_deleted'] = 0;
+                    $builder->insert($saveData);
+                } else {
+                    $saveData['updated_by'] = session()->get('user_login_id');
+                    $saveData['updated_on'] = date('Y-m-d H:i:s');
+                    $builder->where('web_blog_id', $id)->update($saveData);
+                }
+                return $this->respond([], 'successfully');
+
+            default:
+                return $this->respond([], "Invalid action", 400);
+        }
     }
 
     public function upload_image()
@@ -31,7 +148,7 @@ class Blog extends BaseController
                 ->setJSON(['error' => ['message' => 'Invalid file type. Allowed types: jpg, jpeg, png, webp, gif']]);
         }
 
-        $uploadPath = FCPATH . 'uploads/blog_content_images/';
+        $uploadPath = ROOTPATH . 'uploads/blog_content_images/';
         if (!is_dir($uploadPath)) {
             mkdir($uploadPath, 0755, true);
         }
@@ -60,18 +177,10 @@ class Blog extends BaseController
                 ->setJSON(['error' => ['message' => 'Image URL is required']]);
         }
 
-        // Extract filename from URL
         $url = $data['url'];
         $filename = basename($url);
-        $filePath = FCPATH . 'uploads/blog_content_images/' . $filename;
+        $filePath = ROOTPATH . 'uploads/blog_content_images/' . $filename;
 
-        // Security check: Ensure the file is in the uploads directory
-        if (strpos($filePath, FCPATH . 'uploads/blog_content_images/') !== 0) {
-            return $this->response->setStatusCode(400)
-                ->setJSON(['error' => ['message' => 'Invalid file path']]);
-        }
-
-        // Check if file exists and delete it
         if (file_exists($filePath)) {
             if (unlink($filePath)) {
                 return $this->response->setStatusCode(200)

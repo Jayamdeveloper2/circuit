@@ -3719,4 +3719,127 @@ class MainPage extends BaseController
 
         return $this->response->setJSON(['status' => 'success', 'message' => 'Seeding successful']);
     }
+    // Call to Action
+    public function pageCallToAction()
+    {
+        if (!session()->get('user_login_id')) {
+            return redirect()->to(base_url(ADMIN_NAME));
+        }
+        $page['title'] = "Call to Action";
+        $page['breadcrumb'] = '<div class="own-breadcrumb">General <i style="font-size:14px" class="fas fa-chevron-right"></i> <span>Call to Action</span></div>';
+        
+        // Predefined tags we want to manage
+        $tags = ['home', 'about', 'domain-services', 'proprietary-frameworks', 'blog', 'blog-details', 'contact'];
+        
+        // Ensure they exist or fetch them
+        $ctaData = [];
+        foreach ($tags as $tag) {
+            $row = $this->db->table('web_call_to_action')->where('tag', $tag)->get()->getRowArray();
+            if (!$row) {
+                // Optional: Insert default if not exists
+                $insert = [
+                    'tag' => $tag,
+                    'title' => ucfirst(str_replace('-', ' ', $tag)) . ' CTA',
+                    'content' => '',
+                    'status' => 1,
+                    'created_on' => date('Y-m-d H:i:s')
+                ];
+                $this->db->table('web_call_to_action')->insert($insert);
+                $row = $insert;
+            }
+            $ctaData[] = $row;
+        }
+        
+        $page['ctaData'] = $ctaData;
+        return view('admin/pages/cta', $page);
+    }
+
+    public function getCallToActions()
+    {
+        if (!session()->get('user_login_id')) {
+            return $this->respond([], 'Session Expired', 404);
+        }
+        $tags = ['home', 'about', 'domain-services', 'proprietary-frameworks', 'blog', 'blog-details', 'contact'];
+        $res = [];
+        foreach ($tags as $i => $tag) {
+            $row = $this->db->table('web_call_to_action')->where('tag', $tag)->get()->getRowArray();
+            if ($row) {
+                $res[] = [
+                    'serial_no' => $i + 1,
+                    'tag' => strtoupper(str_replace('-', ' ', $row['tag'])),
+                    'title' => $row['title'],
+                    'content' => mb_strimwidth(strip_tags($row['content']), 0, 80, '...'),
+                    'status' => $row['status'],
+                    'raw_tag' => $row['tag'],
+                    'raw_content' => $row['content']
+                ];
+            }
+        }
+        return $this->response->setJSON(['code' => 200, 'data' => $res]);
+    }
+
+    public function getCallToAction()
+    {
+        if (!session()->get('user_login_id')) {
+            return $this->respond([], 'Session Expired', 404);
+        }
+        $tag = $this->request->getPost('tag');
+        $data = $this->db->table('web_call_to_action')
+            ->where('tag', $tag)
+            ->get()->getResultArray();
+
+        return $this->respond($data, 'successfully');
+    }
+
+    public function saveCallToAction()
+    {
+        if (!session()->get('user_login_id')) {
+            return $this->respond([], 'Session Expired', 404);
+        }
+        $data = $this->request->getPost();
+        $tag = $data['tag'];
+
+        $saveData = [
+            'tag' => $tag,
+            'title' => $data['title'],
+            'content' => $data['content'],
+            'status' => $data['status'] ?? 1,
+            'updated_on' => date('Y-m-d H:i:s')
+        ];
+
+        $existing = $this->db->table('web_call_to_action')->where('tag', $tag)->get()->getRowArray();
+
+        if ($existing) {
+            $this->db->table('web_call_to_action')->where('tag', $tag)->update($saveData);
+        } else {
+            $saveData['created_on'] = date('Y-m-d H:i:s');
+            $this->db->table('web_call_to_action')->insert($saveData);
+        }
+
+        return $this->respond([], 'successfully');
+    }
+
+    // Home Blog Content
+    public function pageHomeBlogContent()
+    {
+        if (!session()->get('user_login_id')) {
+            return redirect()->to(base_url(ADMIN_NAME));
+        }
+
+        $page['data'] = $this->db->table('web_content')
+            ->select('*, concat("' . CONTENT_IMG . '", web_image_1) as image, concat("' . CONTENT_IMG . '", web_image_2) as image2')
+            ->where('web_content_id', 23)
+            ->get()->getRowArray();
+
+        // If no data exists, create a default record
+        if (!$page['data']) {
+            $this->db->table('web_content')->insert(['web_content_id' => 23, 'status' => 1, 'web_content_1' => 'From the Circuit Brilliance Blog']);
+            $page['data'] = $this->db->table('web_content')->where('web_content_id', 23)->get()->getRowArray();
+        }
+
+        $page['title'] = "Blog Content";
+        $page['breadcrumb'] = '<div class="own-breadcrumb">Home <i style="font-size:14px" class="fas fa-chevron-right"></i> <span> Blog Content </span></div>';
+        return view('admin/pages/homeblogcontent', $page);
+    }
+
 }

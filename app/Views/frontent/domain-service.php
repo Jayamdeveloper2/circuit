@@ -80,18 +80,22 @@
     <?php endforeach; ?>
 
     <!-- FINAL CTA -->
+    <?php if (!empty($cta) && $cta['status'] == 1): ?>
     <section class="cta-sec">
         <div class="container">
             <div class="cta-inner wow zoomIn">
-                <h2 class="cta-h">Have a Power Electronics <span>Design Project in Mind?</span></h2>
-                <p class="cta-sub">Tell us about your project — domain, power level, challenge. We respond with a clear scoping proposal. No obligation. Just a direct conversation between engineers.</p>
+                <h2 class="cta-h"><?= $cta['title'] ?></h2>
+                <div class="cta-sub"><?= $cta['content'] ?></div>
                 <div class="hero-btns mt-4">
-                    <a href="contact.php" class="btn-hp">Start a Conversation <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="https://wa.me/918870174864" target="_blank" rel="noopener noreferrer" class="btn-hs px-4 py-3">Message on WhatsApp <i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="<?= base_url('contact') ?>" class="btn-hp">Start a Conversation <i class="fa-solid fa-arrow-right"></i></a>
+                    <?php if (!empty($setting['user_phone_1'])): ?>
+                    <a href="https://wa.me/<?= preg_replace('/[^0-9]/', '', $setting['user_phone_1']) ?>" target="_blank" rel="noopener noreferrer" class="btn-hs px-4 py-3">Message on WhatsApp <i class="fa-brands fa-whatsapp"></i></a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
     </section>
+    <?php endif; ?>
 </main>
 
 <?php include('common/footer.php'); ?>

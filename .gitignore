@@ -1,0 +1,30 @@
+# ENV file
+.env
+
+# Writable folder (runtime files)
+writable/*
+!writable/index.html
+!writable/.htaccess
+
+# Logs
+*.log
+
+# Sessions
+writable/session/
+
+# Debugbar
+writable/debugbar/
+
+# Composer
+/vendor/
+
+# Node (if used)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

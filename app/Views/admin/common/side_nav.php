@@ -76,26 +76,26 @@
 
                     <!--new -->
 
-                    <li class="  <?= ($routeName == "homegallery-manage") ? "active" : "" ?>">
+                    <!-- <li class="  <?= ($routeName == "homegallery-manage") ? "active" : "" ?>">
                         <a href="<?= base_url(ADMIN_NAME . '/homegallery-manage') ?>">
 
                             <i class="fas fa-image" style="font-size: 18px"></i>
                             <span>Home Gallery</span>
                         </a>
-                    </li>
+                    </li> -->
 
 
                     <!--off -->
 
 
 
-                    <li class="  <?= ($routeName == "homecontact-manage") ? "active" : "" ?>">
+                    <!-- <li class="  <?= ($routeName == "homecontact-manage") ? "active" : "" ?>">
                         <a href="<?= base_url(ADMIN_NAME . '/homecontact-manage') ?>">
 
                             <i class="fas fa-phone" style="font-size: 18px"></i>
                             <span>Home Contact</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="  <?= ($routeName == "homemission-manage") ? "active" : "" ?>">
                         <a href="<?= base_url(ADMIN_NAME . '/homemission-manage') ?>">
                             <i class="fas fa-bullseye" style="font-size: 18px"></i>
@@ -118,6 +118,12 @@
                         <a href="<?= base_url(ADMIN_NAME . '/framework-manage') ?>">
                             <i class="fas fa-shield-alt" style="font-size: 18px"></i>
                             <span>Engineering Assurance</span>
+                        </a>
+                    </li>
+                    <li class="  <?= ($routeName == "homeblogcontent-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/homeblogcontent-manage') ?>">
+                            <i class="fas fa-newspaper" style="font-size: 18px"></i>
+                            <span>Blog Content</span>
                         </a>
                     </li>
                     <li class="header fs-10 m-0 text-uppercase">About</li>
@@ -198,12 +204,7 @@
                         </a>
                     </li>
 <li class="header fs-10 m-0 text-uppercase">Services</li>
-                    <li class="  <?= ($routeName == "services-manage") ? "active" : "" ?>">
-                        <a href="<?= base_url(ADMIN_NAME . '/services-manage') ?>">
-                            <i class="fas fa-layer-group" style="font-size: 18px"></i>
-                            <span>Services</span>
-                        </a>
-                    </li>
+                    
                     <li class="  <?= ($routeName == "domain-services-manage") ? "active" : "" ?>">
                         <a href="<?= base_url(ADMIN_NAME . '/domain-services-manage') ?>">
                             <i class="fas fa-microchip" style="font-size: 18px"></i>
@@ -229,7 +230,7 @@
 
 
 
-                    <li class="header fs-10 m-0 text-uppercase">Gallery</li>
+                    <!-- <li class="header fs-10 m-0 text-uppercase">Gallery</li>
 
                     <li class="  <?= ($routeName == "gallery-manage") ? "active" : "" ?>">
                         <a href="<?= base_url(ADMIN_NAME . '/gallery-manage') ?>">
@@ -242,6 +243,24 @@
                         <a href="<?= base_url(ADMIN_NAME . '/ourcorevalues-manage') ?>">
                             <i class="fas fa-star" style="font-size: 18px"></i>
                             <span>Our Core Values</span>
+                        </a>
+                    </li> -->
+
+                    <li class="header fs-10 m-0 text-uppercase">Blog</li>
+                    
+                    <li class="  <?= ($routeName == "blog-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/blog-manage') ?>">                             
+                            <i class="fas fa-address-card" style="font-size: 18px"></i>
+                            <span>Blog List</span>
+                        </a>
+                    </li>
+
+                    <li class="header fs-10 m-0 text-uppercase">Call to action</li>
+                    
+                    <li class="  <?= ($routeName == "cta-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/cta-manage') ?>">                             
+                            <i class="fas fa-address-card" style="font-size: 18px"></i>
+                            <span>Call to action</span>
                         </a>
                     </li>
 
@@ -271,7 +290,12 @@
                     </li> -->
 
 
-
+<!-- <li class="  <?= ($routeName == "services-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/services-manage') ?>">
+                            <i class="fas fa-layer-group" style="font-size: 18px"></i>
+                            <span>Services</span>
+                        </a>
+                    </li> -->
 
                     <!-- <li class="header fs-10 m-0 text-uppercase">Accomplishments</li>
                     
@@ -397,34 +421,26 @@
 
 
                     <li class="header fs-10 m-0 text-uppercase">Blog</li>
-                    
                     <li class="  <?= ($routeName == "blog-manage") ? "active" : "" ?>">
                         <a href="<?= base_url(ADMIN_NAME . '/blog-manage') ?>">                             
                             <i class="fas fa-address-card" style="font-size: 18px"></i>
                             <span>Blog List</span>
                         </a>
                     </li>
-                    
-                    <li class="header fs-10 m-0 text-uppercase">Get Involved</li>
-                    
-                    <li class="  <?= ($routeName == "involved-manage") ? "active" : "" ?>">
-                        <a href="<?= base_url(ADMIN_NAME . '/involved-manage') ?>">                             
-                            <i class="fas fa-address-card" style="font-size: 18px"></i>
-                            <span>Content</span>
-                        </a>
-                    </li>
 
                     <li class="  <?= ($routeName == "involvedlist-manage") ? "active" : "" ?>">
                         <a href="<?= base_url(ADMIN_NAME . '/involvedlist-manage') ?>">
                             <i class="fas fa-sitemap" style="font-size: 18px"></i>
-                            
                             <span>Involved List</span>
                         </a>
-                        <li class="<?= ($routeName == "donation-form-manage") ? "active" : "" ?>">
-                            <a href="<?= base_url(ADMIN_NAME . '/donation-form-manage') ?>">
-                                <i class="fas fa-donate" style="font-size: 18px"></i>
-                            <span>Donation Form</span>
                     </li>
+                    <li class="<?= ($routeName == "donation-form-manage") ? "active" : "" ?>">
+                        <a href="<?= base_url(ADMIN_NAME . '/donation-form-manage') ?>">
+                            <i class="fas fa-donate" style="font-size: 18px"></i>
+                            <span>Donation Form</span>
+                        </a>
+                    </li>
+
 
                     <li class="header fs-10 m-0 text-uppercase">Work with Us</li>
 

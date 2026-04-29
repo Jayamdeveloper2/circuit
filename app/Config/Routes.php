@@ -35,6 +35,8 @@ try {
             elseif ($menu['web_menu_id'] == 3) $slug = 'services';
             elseif ($menu['web_menu_id'] == 4) $slug = 'gallery';
             elseif ($menu['web_menu_id'] == 5) $slug = 'contact';
+            elseif ($menu['web_menu_id'] == 6) $slug = 'portfolio';
+            elseif ($menu['web_menu_id'] == 7) $slug = 'blog';
         }
 
         if ($slug && $menu['web_menu_id'] != 1) {
@@ -50,8 +52,11 @@ try {
                 $routes->get($slug, 'Home::pagecontact', ['as' => $slug]);
             } elseif ($menu['web_menu_id'] == 6) {
                 $routes->get($slug, 'Home::pageportfolio', ['as' => $slug]);
+            } elseif ($menu['web_menu_id'] == 7) {
+                $routes->get($slug, 'Home::pageBlog', ['as' => $slug]);
+                // Add detail route for blog
+                $routes->get($slug . '/(:segment)', 'Home::pageBlogDetail/$1', ['as' => $slug . '_detail']);
             }
-
         }
     }
 } catch (\Exception $e) {
@@ -61,10 +66,10 @@ try {
 $routes->post('contact/submit', 'Contact::submitContact');
 
 // $routes->get('podcast', 'Home::pagePodcast', ['as' => 'podcast']);
-// $routes->get('blog', 'Home::pageBlog', ['as' => 'blog']);
-// $routes->get('blog/(:segment)', 'Home::pageBlogDetail/$1', ['as' => 'blog_detail']);
-// $routes->get('work-with-us', 'Home::pageWorkWithUs', ['as' => 'work-with-us']);
-// $routes->get('casestudy/(:segment)', 'Home::pageCaseStudyDetail/$1', ['as' => 'casestudy']);
+$routes->get('blog', 'Home::pageBlog', ['as' => 'blog']);
+$routes->get('blog.php', 'Home::pageBlog');
+$routes->get('blog-details.php', 'Home::pageBlogDetail');
+$routes->get('blog/(:segment)', 'Home::pageBlogDetail/$1', ['as' => 'blog_detail']);
 
 try {
     $db = \Config\Database::connect();
@@ -82,6 +87,8 @@ try {
                 $routes->get($slug, 'Home::pagecontact');
             } elseif ($menu['web_menu_id'] == 6) {
                 $routes->get($slug, 'Home::pageportfolio');
+            } elseif ($menu['web_menu_id'] == 7) {
+                $routes->get($slug, 'Home::pageBlog');
             }
 
         }
@@ -95,8 +102,11 @@ $routes->group(ADMIN_NAME, function ($routes) {
 
     $routes->get('logout', 'Admin\Auth::logout');
     $routes->post('upload-blog-content-image', 'Admin\Blog::upload_image');
-
     $routes->post('delete-blog-content-image', 'Admin\Blog::delete_image');
+    $routes->get('blog-manage', 'Admin\Blog::pageBlog', ['as' => 'blog-manage']);
+    $routes->get('cta-manage', 'Admin\MainPage::pageCallToAction', ['as' => 'cta-manage']);
+   
+
 
     //Menu
     $routes->get('menu-manage', 'Admin\MainPage::pageMenu', ['as' => 'menu-manage']);
@@ -155,6 +165,9 @@ $routes->group(ADMIN_NAME, function ($routes) {
 
     //Engineering Assurance Framework
     $routes->get('framework-manage', 'Admin\MainPage::pageFramework', ['as' => 'framework-manage']);
+
+    //Home Blog Content
+    $routes->get('homeblogcontent-manage', 'Admin\MainPage::pageHomeBlogContent', ['as' => 'homeblogcontent-manage']);
 
     // Portfolio
     $routes->get('portfolio-manage', 'Admin\MainPage::pagePortfolio', ['as' => 'portfolio-manage']);
@@ -256,5 +269,16 @@ $routes->group(ADMIN_NAME, function ($routes) {
 
         $routes->post('getGallery', 'Admin\MainPage::getGallery');
         $routes->post('saveGallery', 'Admin\MainPage::saveGallery');
+
+        //Blog
+        $routes->post('getBlog', 'Admin\Blog::getBlog');
+        $routes->post('saveBlog', 'Admin\Blog::saveBlog');
+
+        //Call to Action
+        $routes->post('getCallToAction', 'Admin\MainPage::getCallToAction');
+        $routes->post('getCallToActions', 'Admin\MainPage::getCallToActions');
+        $routes->post('saveCallToAction', 'Admin\MainPage::saveCallToAction');
+
+
     });
 });

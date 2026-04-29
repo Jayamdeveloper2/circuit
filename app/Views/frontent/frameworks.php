@@ -157,7 +157,7 @@ $craft = $frameworks_content['craft'] ?? [];
     </section>
 
     <!-- STICKY ANCHOR NAV -->
-    <div class="anchor-nav-hp hide-mobile">
+    <div class="anchor-nav-hp">
         <div class="container d-flex justify-content-center gap-3 flex-wrap">
             <a href="#scc" class="btn-hs px-4 py-3"><?= htmlspecialchars($scc['scc_nav_label'] ?? 'CB-SCC') ?></a>
             <a href="#thermal" class="btn-hs px-4 py-3"><?= htmlspecialchars($thermal['thermal_nav_label'] ?? 'CB-Thermal') ?></a>
@@ -495,18 +495,20 @@ $craft = $frameworks_content['craft'] ?? [];
     </section>
 
     <!-- CONTACT CTA -->
+    <?php if (!empty($cta) && $cta['status'] == 1): ?>
     <section class="cta-sec">
         <div class="container">
             <div class="cta-inner wow zoomIn">
-                <h2 class="cta-h">Apply a Proprietary <span>Analytical Framework.</span></h2>
-                <p class="cta-sub">Our analytical approach eliminates hardware guesswork and reduces revision cycles through rigorous physical validation at the design stage.</p>
+                <h2 class="cta-h"><?= $cta['title'] ?></h2>
+                <div class="cta-sub"><?= $cta['content'] ?></div>
                 <div class="hero-btns mt-4">
-                    <a href="contact.php#cbContactForm" class="btn-hp">Book a Scoping Call <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="domain-service.php" class="btn-hs">Domain Expertise</a>
+                    <a href="<?= base_url('contact#cbContactForm') ?>" class="btn-hp">Book a Scoping Call <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="<?= base_url('domain-service') ?>" class="btn-hs">Domain Expertise</a>
                 </div>
             </div>
         </div>
     </section>
+    <?php endif; ?>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>

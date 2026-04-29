@@ -102,10 +102,10 @@
                                     <form class="form form-content mb-4">
                                         <div class="d-flex justify-content-between align-items-start mb-2">
                                             <div class="flex-grow-1">
-                                                <div class="form-group mb-3 col-md-4 px-0">
+                                                <!-- <div class="form-group mb-3 col-md-4 px-0">
                                                     <label class="form-label fw-bold">Section Title</label>
                                                     <input type="text" name="web_content_1" value="<?= $data['web_content_1'] ?>" class="form-control" placeholder="Enter title...">
-                                                </div>
+                                                </div> -->
                                                 <div class="form-group mb-0 col-md-10 px-0">
                                                     <label class="form-label fw-bold">Intro Paragraph</label>
                                                     <div class="input-group">
@@ -186,14 +186,14 @@
                                             </div>
                                         </div>
 
-                                        <div class="row">
+                                        <!-- <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="form-label">Footer Description</label>
                                                     <textarea name="web_footer_desc" class="form-control" rows="3"></textarea>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                         <div class="row">
                                             <div class="col-md-6">
